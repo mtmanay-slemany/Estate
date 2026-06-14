@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Nawzad Estate | نەوزاد ئیستەیت | عقارات نوزاد</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.js"></script>
+<script src="https://upload-widget.cloudinary.com/global/all.js"></script>
+<style>
+:root{
+  --bg:#0F1923;--bg2:#162130;--bg3:#1E2D3E;--sur:#243447;--bor:#2E4560;
+  --gold:#C9923B;--gl:#E5B96A;--iv:#F7F3ED;--dim:#BDB5AA;
+  --gr:#8BA4B8;--green:#4CAF7D;--red:#E05B5B;
+  --fd:'Playfair Display',serif;--fb:'Inter','Noto Naskh Arabic',sans-serif;
+  --r:12px;--rl:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--iv);font-family:var(--fb);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+[dir=rtl]{font-family:'Noto Naskh Arabic',sans-serif}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes fadein{from{opacity:0;transform:translateX(-50%) translateY(6px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+@keyframes hspulse{0%{box-shadow:0 2px 20px rgba(201,146,59,.7),0 0 0 0 rgba(201,146,59,.5)}70%{box-shadow:0 2px 20px rgba(201,146,59,.7),0 0 0 16px rgba(201,146,59,0)}100%{box-shadow:0 2px 20px rgba(201,146,59,.7),0 0 0 0 rgba(201,146,59,0)}}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+
+/* ─── NAVBAR ─── */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;padding:0 5%;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(15,25,35,.94);backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(201,146,59,.15);transition:height .3s}
+.navbar.sc{height:56px}
+.nlogo{display:flex;align-items:center;gap:9px;text-decoration:none;cursor:pointer}
+.nlogo-icon{width:38px;height:38px;background:linear-gradient(135deg,var(--gold),var(--gl));border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.nlogo span{font-family:var(--fd);font-size:1.3rem;font-weight:700;color:var(--iv)}
+.nlogo span b{color:var(--gold)}
+.nlinks{display:flex;align-items:center;gap:6px;list-style:none}
+.nlinks a{color:var(--gr);text-decoration:none;font-size:.88rem;font-weight:500;padding:7px 13px;border-radius:var(--r);transition:all .2s}
+.nlinks a:hover{color:var(--iv);background:rgba(201,146,59,.1)}
+.nright{display:flex;align-items:center;gap:8px}
+.lsw{display:flex;gap:3px;background:var(--sur);border-radius:8px;padding:4px}
+.lb{padding:3px 10px;border:none;cursor:pointer;border-radius:6px;font-size:.72rem;font-weight:700;color:var(--gr);background:transparent;transition:all .2s;font-family:inherit}
+.lb.on{background:var(--gold);color:var(--bg)}
+.adm-badge{background:rgba(201,146,59,.15);border:1px solid rgba(201,146,59,.4);color:var(--gold);font-size:.7rem;font-weight:700;padding:3px 9px;border-radius:100px;display:none;align-items:center;gap:4px}
+body.adm .adm-badge{display:flex}
+.btn-logout{padding:5px 12px;background:transparent;border:1px solid var(--bor);color:var(--gr);border-radius:var(--r);font-size:.75rem;cursor:pointer;font-family:inherit;transition:all .2s;display:none}
+body.adm .btn-logout{display:block}
+.btn-logout:hover{border-color:var(--red);color:var(--red)}
+.btn-post{padding:8px 18px;background:var(--gold);color:var(--bg);border:none;cursor:pointer;border-radius:var(--r);font-size:.83rem;font-weight:700;font-family:inherit;transition:all .2s;display:none}
+body.adm .btn-post{display:flex;align-items:center;gap:5px}
+.btn-post:hover{background:var(--gl)}
+.staff-btn{width:26px;height:26px;border-radius:50%;background:rgba(139,164,184,.06);border:1px solid rgba(139,164,184,.1);color:rgba(139,164,184,.2);font-size:.7rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:color .3s;flex-shrink:0}
+.staff-btn:hover{color:rgba(139,164,184,.45)}
+.hbg{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.hbg span{display:block;width:22px;height:2px;background:var(--iv);border-radius:2px}
+
+/* ─── HERO ─── */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;padding:80px 5% 60px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(201,146,59,.07) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 80% 20%,rgba(139,164,184,.05) 0%,transparent 60%)}
+.hero-grid{position:absolute;inset:0;opacity:.025;background-image:linear-gradient(rgba(201,146,59,1) 1px,transparent 1px),linear-gradient(90deg,rgba(201,146,59,1) 1px,transparent 1px);background-size:60px 60px}
+.hero-content{position:relative;z-index:2;text-align:center;max-width:780px}
+.hero-ey{display:inline-flex;align-items:center;gap:7px;background:rgba(201,146,59,.1);border:1px solid rgba(201,146,59,.3);color:var(--gold);font-size:.77rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 15px;border-radius:100px;margin-bottom:26px}
+.hero-ey::before{content:"◆";font-size:.45rem}
+.hero h1{font-family:var(--fd);font-size:clamp(2.3rem,5.5vw,4rem);font-weight:700;line-height:1.15;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero-sub{font-size:clamp(.9rem,1.8vw,1.05rem);color:var(--gr);max-width:500px;margin:0 auto 38px;line-height:1.7}
+.sbar{background:var(--bg2);border:1px solid var(--bor);border-radius:var(--rl);padding:10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;max-width:680px;margin:0 auto 44px;box-shadow:0 8px 32px rgba(0,0,0,.4)}
+.sbar select,.sbar input{flex:1;min-width:130px;background:var(--sur);border:1px solid var(--bor);color:var(--iv);padding:9px 13px;border-radius:var(--r);font-size:.85rem;font-family:inherit;cursor:pointer;appearance:none}
+.sbar input{min-width:160px}
+.sbar input::placeholder{color:var(--gr)}
+.sbar select:focus,.sbar input:focus{outline:none;border-color:var(--gold)}
+.sbar-btn{background:var(--gold);color:var(--bg);border:none;cursor:pointer;padding:9px 22px;border-radius:var(--r);font-weight:700;font-size:.88rem;font-family:inherit;transition:all .2s;white-space:nowrap}
+.sbar-btn:hover{background:var(--gl)}
+.hstats{display:flex;gap:36px;justify-content:center;flex-wrap:wrap}
+.hstat strong{display:block;font-family:var(--fd);font-size:1.75rem;color:var(--gold)}
+.hstat span{font-size:.78rem;color:var(--gr)}
+.scroll-dn{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:5px;color:var(--gr);font-size:.72rem;animation:bounce 2s infinite}
+
+/* ─── SECTIONS ─── */
+section{padding:76px 5%}
+.sec-hd{text-align:center;margin-bottom:44px}
+.sec-ey{color:var(--gold);font-size:.73rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+.sec-ti{font-family:var(--fd);font-size:clamp(1.75rem,3.5vw,2.6rem);font-weight:700;color:var(--iv);line-height:1.2}
+.sec-su{color:var(--gr);font-size:.9rem;margin-top:9px}
+
+/* ─── FILTERS ─── */
+.fbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:34px}
+.fb{padding:7px 18px;border-radius:100px;border:1px solid var(--bor);background:transparent;color:var(--gr);font-size:.83rem;font-weight:500;cursor:pointer;font-family:inherit;transition:all .2s}
+.fb:hover{border-color:var(--gold);color:var(--gold)}
+.fb.on{background:var(--gold);border-color:var(--gold);color:var(--bg);font-weight:700}
+
+/* ─── CARDS ─── */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px;width:100%}
+.pcard{background:var(--bg2);border:1px solid var(--bor);border-radius:var(--rl);overflow:hidden;cursor:pointer;position:relative;transition:transform .3s,border-color .3s,box-shadow .3s}
+.pcard:hover{transform:translateY(-6px);border-color:rgba(201,146,59,.45);box-shadow:0 8px 32px rgba(201,146,59,.2)}
+.card-img{position:relative;height:215px;overflow:hidden;background:var(--sur)}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s;display:block}
+.pcard:hover .card-img img{transform:scale(1.07)}
+.cbadge{position:absolute;top:13px;left:13px;padding:4px 11px;border-radius:100px;font-size:.7rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;z-index:2}
+.bs{background:var(--gold);color:var(--bg)}.br{background:var(--green);color:#fff}
+.cnew{position:absolute;top:13px;right:13px;background:rgba(201,146,59,.9);color:var(--bg);padding:3px 9px;border-radius:100px;font-size:.67rem;font-weight:800;text-transform:uppercase;z-index:2}
+.card-del-btn{position:absolute;top:10px;left:10px;z-index:10;background:rgba(224,91,91,.92);color:#fff;border:none;cursor:pointer;width:30px;height:30px;border-radius:50%;font-size:.9rem;display:none;align-items:center;justify-content:center;transition:background .2s}
+body.adm .card-del-btn{display:flex}
+.card-del-btn:hover{background:var(--red)}
+.card-edit-btn{position:absolute;top:10px;left:46px;z-index:10;background:rgba(201,146,59,.92);color:var(--bg);border:none;cursor:pointer;width:30px;height:30px;border-radius:50%;font-size:.85rem;display:none;align-items:center;justify-content:center;transition:background .2s}
+body.adm .card-edit-btn{display:flex}
+.card-edit-btn:hover{background:var(--gl)}
+@media(hover:hover){
+  .c360-ov{background:rgba(0,0,0,0)}
+  .pcard:hover .c360-ov{background:rgba(0,0,0,.38)}
+  .c360-btn{opacity:0;transform:scale(.8)}
+  .pcard:hover .c360-btn{opacity:1;transform:scale(1)}
+}
+@media(hover:none){
+  .c360-ov{background:rgba(0,0,0,.2)}
+  .c360-btn{opacity:1!important;transform:scale(1)!important}
+}
+.c360-ov{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:background .3s;z-index:3}
+.c360-btn{background:rgba(201,146,59,.94);color:var(--bg);border:none;cursor:pointer;padding:10px 20px;border-radius:100px;font-size:.83rem;font-weight:800;display:flex;align-items:center;gap:5px;font-family:inherit;box-shadow:0 4px 20px rgba(201,146,59,.5);transition:opacity .3s,transform .3s}
+.cbody{padding:19px}
+.ctype{font-size:.7rem;font-weight:700;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px}
+.ctitle{font-family:var(--fd);font-size:1.08rem;font-weight:600;color:var(--iv);margin-bottom:5px;line-height:1.3}
+.cloc{font-size:.8rem;color:var(--gr);display:flex;align-items:center;gap:3px;margin-bottom:14px}
+.cspecs{display:flex;gap:14px;border-top:1px solid var(--bor);padding-top:13px;margin-bottom:13px;flex-wrap:wrap}
+.spec{display:flex;align-items:center;gap:4px;font-size:.78rem;color:var(--gr)}
+.cfoot{display:flex;align-items:center;justify-content:space-between}
+.cprice{font-family:var(--fd);font-size:1.25rem;font-weight:700;color:var(--gold)}
+.cprice small{font-size:.68rem;color:var(--gr);font-family:var(--fb)}
+.btn-det{background:var(--sur);border:1px solid var(--bor);color:var(--iv);padding:8px 16px;border-radius:var(--r);font-size:.78rem;font-weight:500;cursor:pointer;font-family:inherit;transition:all .2s}
+.btn-det:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ─── FEATURES ─── */
+.fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.fcard{background:var(--bg2);border:1px solid var(--bor);border-radius:var(--rl);padding:26px 22px;transition:all .3s}
+.fcard:hover{border-color:rgba(201,146,59,.3);transform:translateY(-4px)}
+.ficon{width:50px;height:50px;background:rgba(201,146,59,.1);border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:14px}
+.ftitle{font-family:var(--fd);font-size:1rem;font-weight:600;color:var(--iv);margin-bottom:7px}
+.fdesc{font-size:.83rem;color:var(--gr);line-height:1.6}
+
+/* ─── CTA ─── */
+.cta-sec{background:var(--bg2);border-top:1px solid var(--bor);border-bottom:1px solid var(--bor);text-align:center;padding:76px 5%;position:relative;overflow:hidden}
+.cta-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(201,146,59,.07) 0%,transparent 70%)}
+.cta-sec>*{position:relative;z-index:1}
+.cta-sec h2{font-family:var(--fd);font-size:clamp(1.75rem,3.5vw,2.6rem);color:var(--iv);margin-bottom:10px}
+.cta-sec p{color:var(--gr);margin-bottom:28px;max-width:480px;margin-inline:auto}
+.btn-cg{background:var(--gold);color:var(--bg);border:none;cursor:pointer;padding:13px 28px;border-radius:var(--r);font-size:.92rem;font-weight:700;font-family:inherit;transition:all .2s}
+.btn-cg:hover{background:var(--gl);transform:translateY(-2px)}
+
+/* ─── CONTACT ─── */
+.cgrd{display:grid;grid-template-columns:1fr 1fr;gap:36px;max-width:860px;margin:0 auto}
+.ci h3{font-family:var(--fd);font-size:1.25rem;color:var(--iv);margin-bottom:10px}
+.ci p{color:var(--gr);font-size:.88rem;line-height:1.7}
+.citems{margin-top:18px;display:flex;flex-direction:column;gap:10px}
+.citem{display:flex;align-items:center;gap:8px;font-size:.85rem;color:var(--gr)}
+.citem strong{color:var(--iv)}
+
+/* ─── FOOTER ─── */
+footer{background:var(--bg);border-top:1px solid var(--bor);padding:56px 5% 28px;position:relative}
+.fgrd{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:36px}
+.fbrand p{font-size:.83rem;color:var(--gr);margin-top:10px;line-height:1.7;max-width:270px}
+.fcol h5{font-size:.82rem;font-weight:700;color:var(--iv);letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px}
+.fcol ul{list-style:none}
+.fcol ul li{margin-bottom:7px}
+.fcol ul li a{color:var(--gr);text-decoration:none;font-size:.83rem;transition:color .2s}
+.fcol ul li a:hover{color:var(--gold)}
+.fbot{border-top:1px solid var(--bor);padding-top:18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.fbot p{font-size:.78rem;color:var(--gr)}
+
+/* ─── MODALS ─── */
+.moverlay{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.88);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .3s;overflow-y:auto}
+.moverlay.open{opacity:1;pointer-events:all}
+.mbox{background:var(--bg2);border:1px solid var(--bor);border-radius:var(--rl);width:100%;max-width:980px;max-height:88vh;display:flex;flex-direction:column;transform:scale(.95);transition:transform .3s;overflow:hidden;margin:auto}
+.moverlay.open .mbox{transform:scale(1)}
+.mhead{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid var(--bor);flex-shrink:0}
+.mhead h3{font-family:var(--fd);font-size:1.15rem;color:var(--iv)}
+.mcls{background:var(--sur);border:none;color:var(--iv);width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;transition:all .2s;flex-shrink:0}
+.mcls:hover{background:var(--red)}
+.mtabs{display:flex;gap:3px;padding:14px 22px 0;border-bottom:1px solid var(--bor);flex-shrink:0;overflow-x:auto}
+.mtab{padding:8px 16px;border-radius:var(--r) var(--r) 0 0;border:1px solid transparent;border-bottom:none;color:var(--gr);font-size:.83rem;font-weight:500;cursor:pointer;font-family:inherit;transition:all .2s;background:transparent;white-space:nowrap}
+.mtab.on{background:var(--sur);border-color:var(--bor);color:var(--gold)}
+.mbody{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;min-height:0}
+
+/* ─── DETAIL TAB ─── */
+.mprop{padding:22px}
+.mgal{display:grid;grid-template-columns:2fr 1fr;gap:7px;border-radius:var(--r);overflow:hidden;height:260px;margin-bottom:22px}
+.gmain{height:100%;background:var(--sur);overflow:hidden;cursor:zoom-in;position:relative}
+.gmain img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.gmain:hover img{transform:scale(1.03)}
+.gmain::after,.gthumb::after{content:'🔍';position:absolute;bottom:6px;right:8px;font-size:.75rem;opacity:0;transition:opacity .2s;background:rgba(0,0,0,.5);padding:2px 5px;border-radius:4px;pointer-events:none}
+.gmain:hover::after,.gthumb:hover::after{opacity:1}
+.gside{display:flex;flex-direction:column;gap:7px}
+.gthumb{flex:1;background:var(--sur);overflow:hidden;cursor:zoom-in;position:relative}
+.gthumb img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.gthumb:hover img{transform:scale(1.05)}
+.minfo{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:20px}
+.minfo-blk h4{font-family:var(--fd);font-size:1.05rem;color:var(--iv);margin-bottom:10px}
+.spl{list-style:none}
+.spl li{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--bor);font-size:.83rem}
+.spl li span:first-child{color:var(--gr)}
+.spl li span:last-child{color:var(--iv);font-weight:500}
+.mdesc{color:var(--gr);font-size:.88rem;line-height:1.7;margin-bottom:18px}
+.mcta{display:flex;gap:10px;padding-top:16px;border-top:1px solid var(--bor)}
+.btn-p{flex:1;background:var(--gold);color:var(--bg);border:none;cursor:pointer;padding:11px;border-radius:var(--r);font-weight:700;font-family:inherit;transition:all .2s}
+.btn-p:hover{background:var(--gl)}
+.btn-s{flex:1;background:transparent;color:var(--iv);border:1px solid var(--bor);cursor:pointer;padding:11px;border-radius:var(--r);font-weight:500;font-family:inherit;transition:all .2s}
+.btn-s:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ─── 360 TOUR ─── */
+.tour-wrap{display:flex;flex-direction:column;height:520px;position:relative;user-select:none}
+.room-menu{display:flex;align-items:center;gap:6px;padding:10px 14px;background:var(--bg);border-bottom:1px solid var(--bor);overflow-x:auto;flex-shrink:0;scrollbar-width:none}
+.room-menu::-webkit-scrollbar{display:none}
+.rmenu-label{font-size:.72rem;font-weight:700;color:var(--gr);white-space:nowrap;margin-right:4px;text-transform:uppercase;letter-spacing:.07em}
+.room-btn{display:flex;align-items:center;gap:5px;padding:6px 13px;border-radius:100px;border:1px solid var(--bor);background:transparent;color:var(--gr);font-size:.78rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s;white-space:nowrap;flex-shrink:0}
+.room-btn:hover{border-color:var(--gold);color:var(--gold)}
+.room-btn.on{background:var(--gold);border-color:var(--gold);color:var(--bg)}
+#tourViewer{flex:1;position:relative;overflow:hidden;min-height:0}
+#pannellumTour{width:100%;height:100%}
+.tour-nav{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:rgba(15,25,35,.95);border-top:1px solid var(--bor);flex-shrink:0}
+.tnav-arrows{display:flex;gap:8px}
+.tnav-btn{display:flex;align-items:center;gap:5px;padding:7px 14px;border-radius:var(--r);border:1px solid var(--bor);background:var(--sur);color:var(--iv);font-size:.8rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s}
+.tnav-btn:hover:not(:disabled){border-color:var(--gold);color:var(--gold)}
+.tnav-btn:disabled{opacity:.3;cursor:not-allowed}
+.tnav-btn.nx{background:var(--gold);border-color:var(--gold);color:var(--bg)}
+.tnav-btn.nx:hover:not(:disabled){background:var(--gl)}
+.tour-dots{display:flex;align-items:center;gap:5px}
+.tdot{width:7px;height:7px;border-radius:50%;background:var(--bor);cursor:pointer;transition:all .3s}
+.tdot.vis{background:var(--green)}
+.tdot.now{background:var(--gold);transform:scale(1.5)}
+.tour-counter{font-size:.78rem;color:var(--gr);white-space:nowrap}
+.tour-counter b{color:var(--gold)}
+.enter-hint{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);background:rgba(15,25,35,.9);backdrop-filter:blur(10px);border:1px solid rgba(201,146,59,.3);color:var(--iv);padding:8px 18px;border-radius:100px;font-size:.78rem;font-weight:600;pointer-events:none;animation:fadein .4s ease;white-space:nowrap;z-index:10}
+.no-tour{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:var(--bg);color:var(--gr)}
+.no-tour .ni{font-size:3.5rem;opacity:.3}
+
+/* Street-view hotspots */
+.hs-dot{width:52px;height:52px;position:relative;cursor:pointer}
+.hs-dot-inner{width:52px;height:52px;border-radius:50%;background:rgba(201,146,59,.85);border:3px solid rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;font-size:1.4rem;animation:hspulse 2s infinite;transition:transform .2s}
+.hs-dot:hover .hs-dot-inner{transform:scale(1.18)}
+.hs-label{position:absolute;bottom:-26px;left:50%;transform:translateX(-50%);background:rgba(15,25,35,.92);color:var(--iv);font-size:.68rem;font-weight:700;white-space:nowrap;padding:3px 8px;border-radius:4px;border:1px solid var(--bor);pointer-events:none}
+.hs-admin-dot{width:36px;height:36px;position:relative;cursor:pointer}
+.hs-admin-inner{width:36px;height:36px;border-radius:50%;background:rgba(224,91,91,.9);border:2px solid #fff;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:#fff}
+.hs-admin-lbl{position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;font-size:.6rem;font-weight:700;white-space:nowrap;padding:2px 5px;border-radius:3px;pointer-events:none}
+
+/* ─── FORMS ─── */
+.aform{padding:22px}
+.fgr{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ffl{grid-column:1/-1}
+.fg{display:flex;flex-direction:column;gap:5px;margin-bottom:2px}
+.fl{font-size:.78rem;font-weight:500;color:var(--gr)}
+.fi,.fs,.ft{background:var(--sur);border:1px solid var(--bor);color:var(--iv);padding:9px 13px;border-radius:var(--r);font-size:.85rem;font-family:inherit;width:100%;transition:border-color .2s}
+.fi:focus,.fs:focus,.ft:focus{outline:none;border-color:var(--gold)}
+.ft{min-height:80px;resize:vertical}
+.upload-zone{border:2px dashed var(--bor);border-radius:var(--r);padding:22px;text-align:center;cursor:pointer;transition:border-color .2s}
+.upload-zone:hover{border-color:var(--gold)}
+.upload-zone .uzi{font-size:2rem;margin-bottom:6px}
+.upload-zone p{font-size:.8rem;color:var(--gr)}
+.upload-zone p b{color:var(--gold)}
+.badge360{display:inline-block;background:var(--gold);color:var(--bg);padding:2px 8px;border-radius:4px;font-size:.67rem;font-weight:800;margin-bottom:5px}
+.btn-prim{width:100%;padding:11px;background:var(--gold);color:var(--bg);border:none;cursor:pointer;border-radius:var(--r);font-weight:700;font-family:inherit;transition:all .2s;margin-top:16px}
+.btn-prim:hover{background:var(--gl)}
+
+/* Room list */
+.rul-list{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.rul-item{display:flex;align-items:center;gap:10px;background:var(--sur);border:1px solid var(--bor);border-radius:var(--r);padding:10px 12px}
+.rul-thumb{width:56px;height:42px;border-radius:7px;overflow:hidden;flex-shrink:0;background:var(--bg3)}
+.rul-thumb img{width:100%;height:100%;object-fit:cover}
+.rul-info{flex:1;min-width:0}
+.rul-name{background:transparent;border:none;border-bottom:1px solid var(--bor);color:var(--iv);font-size:.83rem;font-family:inherit;width:100%;padding:2px 0;transition:border-color .2s}
+.rul-name:focus{outline:none;border-bottom-color:var(--gold)}
+.rul-icon-sel{background:var(--bg3);border:1px solid var(--bor);color:var(--iv);padding:3px 7px;border-radius:6px;font-size:.75rem;cursor:pointer;font-family:inherit}
+.rul-hs-btn{background:rgba(201,146,59,.12);border:1px solid rgba(201,146,59,.3);color:var(--gold);border-radius:var(--r);font-size:.72rem;padding:4px 9px;cursor:pointer;font-family:inherit;white-space:nowrap}
+.rul-hs-btn:hover{background:rgba(201,146,59,.22)}
+.rul-rm{background:none;border:none;color:var(--red);cursor:pointer;font-size:1rem;flex-shrink:0;padding:4px}
+
+/* Photo grid */
+.photo-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.ph-item{position:relative;width:80px;height:60px;border-radius:7px;overflow:hidden;border:2px solid var(--bor);cursor:pointer;flex-shrink:0}
+.ph-item img{width:100%;height:100%;object-fit:cover}
+.ph-del{position:absolute;inset:0;background:rgba(224,91,91,0);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;transition:background .2s;font-weight:700}
+.ph-item:hover .ph-del{background:rgba(224,91,91,.75)}
+.ph-item.main{border-color:var(--gold)}
+.ph-item.main::after{content:'★';position:absolute;bottom:2px;right:3px;font-size:.6rem;color:var(--gold)}
+.add-ph-btn{width:80px;height:60px;border-radius:7px;border:2px dashed var(--bor);background:transparent;color:var(--gold);font-size:1.4rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .2s;flex-shrink:0}
+.add-ph-btn:hover{border-color:var(--gold)}
+
+/* Edit sections */
+.edit-sec{padding:18px 22px;border-bottom:1px solid var(--bor)}
+.edit-sec:last-child{border-bottom:none}
+.edit-sec-title{font-size:.72rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px}
+.edit-room-item{display:flex;align-items:center;gap:8px;background:var(--sur);border:1px solid var(--bor);border-radius:var(--r);padding:8px 10px;margin-bottom:6px}
+.edit-room-thumb{width:52px;height:38px;border-radius:5px;overflow:hidden;flex-shrink:0;background:var(--bg3)}
+.edit-room-thumb img{width:100%;height:100%;object-fit:cover}
+.edit-room-name{flex:1;background:transparent;border:none;border-bottom:1px solid var(--bor);color:var(--iv);font-size:.82rem;font-family:inherit;padding:2px 0}
+.edit-room-name:focus{outline:none;border-bottom-color:var(--gold)}
+.edit-room-del{background:none;border:none;color:var(--red);cursor:pointer;font-size:1rem;padding:2px 4px}
+.add-room-btn{display:flex;align-items:center;justify-content:center;gap:6px;padding:8px;background:rgba(201,146,59,.08);border:1px dashed rgba(201,146,59,.35);color:var(--gold);border-radius:var(--r);font-size:.8rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s;width:100%;margin-top:6px}
+.add-room-btn:hover{background:rgba(201,146,59,.15)}
+.save-btn{width:100%;padding:12px;background:var(--gold);color:var(--bg);border:none;cursor:pointer;border-radius:var(--r);font-weight:700;font-family:inherit;font-size:.95rem;transition:all .2s}
+.save-btn:hover{background:var(--gl)}
+
+/* ─── HOTSPOT EDITOR ─── */
+#hseModal .mbox{max-width:900px;height:88vh}
+.hse-wrap{display:flex;flex-direction:column;height:100%;min-height:0}
+.hse-tb{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:10px 14px;background:var(--bg);border-bottom:1px solid var(--bor);flex-shrink:0}
+.hse-title{font-size:.82rem;font-weight:700;color:var(--gold);margin-right:4px}
+.hse-btn{padding:6px 12px;border-radius:var(--r);border:1px solid var(--bor);background:var(--sur);color:var(--iv);font-size:.78rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s;display:flex;align-items:center;gap:4px}
+.hse-btn:hover{border-color:var(--gold);color:var(--gold)}
+.hse-btn.placing{background:rgba(201,146,59,.15);border-color:var(--gold);color:var(--gold)}
+.hse-btn.sv{background:var(--green);border-color:var(--green);color:#fff}
+.hse-btn.sv:hover{opacity:.85}
+.hse-viewer{flex:1;position:relative;min-height:0}
+.hse-viewer #hseViewer{width:100%;height:100%}
+.hse-cross{position:absolute;inset:0;cursor:crosshair;z-index:50;display:none;background:rgba(201,146,59,.04);border:2px solid rgba(201,146,59,.5);align-items:center;justify-content:center}
+.hse-cross.on{display:flex}
+.hse-cross-msg{background:rgba(15,25,35,.9);border:1px solid var(--gold);color:var(--gold);padding:10px 20px;border-radius:var(--r);font-size:.85rem;font-weight:600;pointer-events:none}
+.hse-rooms{display:flex;gap:6px;flex-wrap:wrap;padding:10px 14px;background:var(--bg2);border-top:1px solid var(--bor);flex-shrink:0}
+.hse-pill{padding:5px 12px;border-radius:100px;border:1px solid var(--bor);background:transparent;color:var(--gr);font-size:.75rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s}
+.hse-pill:hover{border-color:var(--gold);color:var(--gold)}
+.hse-pill.on{background:var(--gold);border-color:var(--gold);color:var(--bg)}
+.hse-hs-list{padding:8px 14px;background:var(--bg2);border-top:1px solid var(--bor);flex-shrink:0;display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:.75rem;color:var(--gr)}
+.hse-tag{display:flex;align-items:center;gap:4px;background:var(--sur);border:1px solid var(--bor);border-radius:100px;padding:3px 10px;color:var(--iv);font-size:.72rem}
+.hse-tag button{background:none;border:none;color:var(--red);cursor:pointer;font-size:.8rem;padding:0 0 0 3px}
+
+/* ─── LOGIN BOX ─── */
+.login-box{background:var(--bg2);border:1px solid var(--bor);border-radius:var(--rl);width:100%;max-width:320px;padding:30px;text-align:center;transform:scale(.95);transition:transform .3s;margin:auto}
+.moverlay.open .login-box{transform:scale(1)}
+.login-box h3{font-family:var(--fd);font-size:1.2rem;color:var(--iv);margin-bottom:5px}
+.login-box p{font-size:.8rem;color:var(--gr);margin-bottom:18px}
+.login-err{color:var(--red);font-size:.78rem;margin-top:6px;min-height:16px}
+
+/* ─── LIGHTBOX ─── */
+.lightbox{position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.96);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s;padding:0}
+.lightbox.open{opacity:1;pointer-events:all}
+.lb-img-wrap{position:relative;max-width:96vw;max-height:92vh;display:flex;align-items:center;justify-content:center}
+.lb-img-wrap img{max-width:96vw;max-height:86vh;object-fit:contain;border-radius:var(--r);transform:scale(.92);transition:transform .3s;display:block}
+.lightbox.open .lb-img-wrap img{transform:scale(1)}
+.lb-close{position:fixed;top:16px;right:16px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:10}
+.lb-close:hover{background:var(--red)}
+.lb-arrow{position:fixed;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:1.4rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:10;user-select:none}
+.lb-arrow:hover{background:rgba(201,146,59,.6)}
+.lb-prev{left:12px}.lb-next{right:12px}
+.lb-arrow.hidden{opacity:.2;pointer-events:none}
+.lb-counter{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.6);font-size:.82rem;background:rgba(0,0,0,.5);padding:4px 14px;border-radius:100px}
+.lb-strip{position:fixed;bottom:50px;left:50%;transform:translateX(-50%);display:flex;gap:6px;padding:6px;background:rgba(0,0,0,.5);border-radius:var(--r);max-width:90vw;overflow-x:auto}
+.lb-strip::-webkit-scrollbar{display:none}
+.lb-sthumb{width:52px;height:38px;flex-shrink:0;border-radius:5px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:border-color .2s}
+.lb-sthumb img{width:100%;height:100%;object-fit:cover}
+.lb-sthumb.on{border-color:var(--gold)}
+
+/* ─── TOAST ─── */
+.toast{position:fixed;bottom:22px;right:22px;background:var(--bg2);border:1px solid var(--gold);color:var(--iv);padding:10px 18px;border-radius:var(--r);font-size:.83rem;z-index:4000;transform:translateX(120%);transition:transform .3s;max-width:280px}
+.toast.show{transform:translateX(0)}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:768px){
+  .nlinks,.btn-post{display:none}
+  body.adm .btn-post{display:none}
+  .hbg{display:flex}
+  .lsw{display:flex}
+  .nlinks.mob{display:flex;flex-direction:column;position:fixed;top:68px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--bor);padding:14px;z-index:299;gap:4px}
+  .nlinks.mob a{padding:12px 16px;font-size:1rem;border-radius:var(--r)}
+  .fgr{grid-template-columns:1fr}
+  .minfo{grid-template-columns:1fr}
+  .mgal{grid-template-columns:1fr;height:auto}
+  .gmain{height:190px}
+  .gside{flex-direction:row;height:72px}
+  .mcta{flex-direction:column}
+  .tour-wrap{height:460px}
+  .fgrd{grid-template-columns:1fr 1fr}
+  .cgrd{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .hero h1{font-size:2rem}
+  .pgrid{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr}
+  .fgrd{grid-template-columns:1fr}
+  .sbar{flex-direction:column}
+  .sbar select,.sbar input{min-width:unset;width:100%}
+  .sbar-btn{width:100%}
+  .tour-wrap{height:400px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="nb">
+  <div class="nlogo" id="nlogo">
+    <div class="nlogo-icon">🏛️</div>
+    <span><b>Nawzad</b> Estate</span>
+  </div>
+  <ul class="nlinks" id="nl">
+    <li><a href="#props" data-i18n="nProp">Properties</a></li>
+    <li><a href="#feat" data-i18n="nFeat">Features</a></li>
+    <li><a href="#contact" data-i18n="nCont">Contact</a></li>
+  </ul>
+  <div class="nright">
+    <div class="lsw">
+      <button class="lb on" onclick="setLang('en')">EN</button>
+      <button class="lb" onclick="setLang('ku')">کو</button>
+      <button class="lb" onclick="setLang('ar')">ع</button>
+    </div>
+    <div class="adm-badge">🔑 Admin</div>
+    <button class="btn-logout" onclick="adminLogout()" data-i18n="logoutBtn">Logout</button>
+    <button class="btn-post" onclick="openAdd()">+ <span data-i18n="nPost">Post Property</span></button>
+    <button class="staff-btn" id="staffBtn" onclick="staffClick()" title="">⚙</button>
+    <button class="hbg" onclick="toggleMob()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div><div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-ey" data-i18n="hEy">Premium Real Estate in Kurdistan</div>
+    <h1 data-i18n="hT">Find Your <em>Dream Home</em><br>in Kurdistan</h1>
+    <p class="hero-sub" data-i18n="hS">Browse houses, apartments and land — walk through every room with immersive 360° virtual tours.</p>
+    <div class="sbar">
+      <select id="sType">
+        <option value="" data-i18n="sAll">All Types</option>
+        <option value="house" data-i18n="tHo">House</option>
+        <option value="apartment" data-i18n="tAp">Apartment</option>
+        <option value="land" data-i18n="tLa">Land</option>
+        <option value="villa" data-i18n="tVi">Villa</option>
+        <option value="commercial" data-i18n="tCo">Commercial</option>
+      </select>
+      <select id="sStatus">
+        <option value="" data-i18n="sAS">Sale or Rent</option>
+        <option value="sale" data-i18n="fSa">For Sale</option>
+        <option value="rent" data-i18n="fRe">For Rent</option>
+      </select>
+      <input type="text" id="sQ" data-i18n-ph="sPH">
+      <button class="sbar-btn" onclick="doSearch()">🔍 <span data-i18n="sSB">Search</span></button>
+    </div>
+    <div class="hstats">
+      <div class="hstat"><strong id="stL">0</strong><span data-i18n="stLS">Listings</span></div>
+      <div class="hstat"><strong>360°</strong><span data-i18n="stT">Virtual Tours</span></div>
+      <div class="hstat"><strong>3</strong><span data-i18n="stLg">Languages</span></div>
+      <div class="hstat"><strong>24/7</strong><span data-i18n="stSu">Support</span></div>
+    </div>
+  </div>
+  <div class="scroll-dn">↓ <span data-i18n="scD">Scroll</span></div>
+</section>
+
+<!-- PROPERTIES -->
+<section id="props">
+  <div class="sec-hd">
+    <div class="sec-ey" data-i18n="pEy">BROWSE LISTINGS</div>
+    <h2 class="sec-ti" data-i18n="pTi">Featured Properties</h2>
+    <p class="sec-su" data-i18n="pSu">Walk through every room with 360° virtual tours</p>
+  </div>
+  <div class="fbar">
+    <button class="fb on" onclick="fCat('all',this)" data-i18n="fAl">All</button>
+    <button class="fb" onclick="fCat('house',this)" data-i18n="fHo">Houses</button>
+    <button class="fb" onclick="fCat('apartment',this)" data-i18n="fAp">Apartments</button>
+    <button class="fb" onclick="fCat('land',this)" data-i18n="fLa">Land</button>
+    <button class="fb" onclick="fCat('villa',this)" data-i18n="fVi">Villas</button>
+    <button class="fb" onclick="fCat('commercial',this)" data-i18n="fCo">Commercial</button>
+    <button class="fb" onclick="fSt('sale',this)" data-i18n="fSale">For Sale</button>
+    <button class="fb" onclick="fSt('rent',this)" data-i18n="fRent">For Rent</button>
+  </div>
+  <div class="pgrid" id="pgrid"></div>
+</section>
+
+<!-- FEATURES -->
+<section id="feat" style="background:var(--bg2);border-top:1px solid var(--bor);border-bottom:1px solid var(--bor)">
+  <div class="sec-hd">
+    <div class="sec-ey" data-i18n="ftEy">WHY CHOOSE US</div>
+    <h2 class="sec-ti" data-i18n="ftTi">Built for the Modern Buyer</h2>
+  </div>
+  <div class="fgrid">
+    <div class="fcard"><div class="ficon">🌐</div><div class="ftitle" data-i18n="f1T">Room-by-Room 360° Tours</div><div class="fdesc" data-i18n="f1D">Walk through every room like Google Street View — exterior, living room, kitchen, bedrooms.</div></div>
+    <div class="fcard"><div class="ficon">🚪</div><div class="ftitle" data-i18n="f2T">Click Through Doors</div><div class="fdesc" data-i18n="f2D">Glowing door hotspots let you walk naturally from room to room. Or jump directly from the room menu.</div></div>
+    <div class="fcard"><div class="ficon">🌍</div><div class="ftitle" data-i18n="f3T">3 Languages</div><div class="fdesc" data-i18n="f3D">Full Kurdish Sorani, Arabic and English support with proper RTL layout.</div></div>
+    <div class="fcard"><div class="ficon">📱</div><div class="ftitle" data-i18n="f4T">Mobile Ready</div><div class="fdesc" data-i18n="f4D">Tilt your phone to look around in 360°. Works on all smartphones.</div></div>
+    <div class="fcard"><div class="ficon">☁️</div><div class="ftitle" data-i18n="f5T">Permanent Photos</div><div class="fdesc" data-i18n="f5D">All photos stored on Cloudinary — never disappear, no size limit worries.</div></div>
+    <div class="fcard"><div class="ficon">📞</div><div class="ftitle" data-i18n="f6T">Direct Contact</div><div class="fdesc" data-i18n="f6D">Buyers message you directly on Telegram — instant notification, no middleman.</div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec">
+  <h2 data-i18n="ctT">Interested in a Property?</h2>
+  <p data-i18n="ctS">Contact our team in Sulaymaniyah — we'll help you find exactly what you're looking for.</p>
+  <button class="btn-cg" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" data-i18n="ctB">📞 Contact Us</button>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sec-hd">
+    <div class="sec-ey" data-i18n="coEy">GET IN TOUCH</div>
+    <h2 class="sec-ti" data-i18n="coTi">Contact Us</h2>
+  </div>
+  <div class="cgrd">
+    <div class="ci">
+      <h3 data-i18n="coSu">We're here to help</h3>
+      <p data-i18n="coDe">Looking for a property? Our team is in Sulaymaniyah.</p>
+      <div class="citems">
+        <div class="citem">📞 <strong>+964 770 152 3886</strong></div>
+        <div class="citem">📧 <strong>info@nawzadestate.com</strong></div>
+        <div class="citem">📍 <strong data-i18n="coCi">Sulaymaniyah, Kurdistan</strong></div>
+        <div class="citem">⏰ <span data-i18n="coHr">Sat–Thu, 9am–7pm</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="fg" style="margin-bottom:12px"><label class="fl" data-i18n="coNm">Name</label><input type="text" class="fi" id="coName" data-i18n-ph="coNmPH"></div>
+      <div class="fg" style="margin-bottom:12px"><label class="fl" data-i18n="coPh">Phone</label><input type="tel" class="fi" id="coPhone" placeholder="+964..."></div>
+      <div class="fg" style="margin-bottom:16px"><label class="fl" data-i18n="coMs">Message</label><textarea class="ft" id="coMsg" style="min-height:85px" data-i18n-ph="coMsPH"></textarea></div>
+      <button class="btn-prim" onclick="sendTelegram(event)" data-i18n="coSn">Send Message</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fgrd">
+    <div class="fbrand">
+      <div class="nlogo" style="margin-bottom:10px"><div class="nlogo-icon" style="width:34px;height:34px;font-size:15px">🏛️</div><span><b>Nawzad</b> Estate</span></div>
+      <p data-i18n="foD">Premium real estate listings across Kurdistan with 360° virtual tours.</p>
+    </div>
+    <div class="fcol"><h5 data-i18n="foP">Properties</h5><ul><li><a href="#" data-i18n="tHo">Houses</a></li><li><a href="#" data-i18n="tAp">Apartments</a></li><li><a href="#" data-i18n="tLa">Land</a></li><li><a href="#" data-i18n="tVi">Villas</a></li></ul></div>
+    <div class="fcol"><h5 data-i18n="foCi">Cities</h5><ul><li><a href="#">Sulaymaniyah</a></li><li><a href="#">Erbil</a></li><li><a href="#">Duhok</a></li><li><a href="#">Kirkuk</a></li></ul></div>
+    <div class="fcol"><h5 data-i18n="foCo">Company</h5><ul><li><a href="#" data-i18n="foAb">About</a></li><li><a href="#contact" data-i18n="nCont">Contact</a></li><li><a href="#" data-i18n="foTe">Terms</a></li><li><a href="#" data-i18n="foPr">Privacy</a></li></ul></div>
+  </div>
+  <div class="fbot">
+    <p>© 2025 Nawzad Estate. <span data-i18n="foRi">All rights reserved.</span></p>
+    <p data-i18n="foMa">Made in Sulaymaniyah 🇮🇶</p>
+  </div>
+</footer>
+
+<!-- PROPERTY MODAL -->
+<div class="moverlay" id="propModal">
+  <div class="mbox">
+    <div class="mhead"><h3 id="mTitle">Property</h3><button class="mcls" onclick="closeModal('propModal')">✕</button></div>
+    <div class="mtabs">
+      <button class="mtab on" id="tabDet" onclick="swTab('det')" data-i18n="tbDe">Details</button>
+      <button class="mtab" id="tabTour" onclick="swTab('tour')" data-i18n="tbTo">360° Tour</button>
+    </div>
+    <div class="mbody">
+      <div id="tcDet" class="mprop">
+        <div class="mgal">
+          <div class="gmain" onclick="openLB(0)"><img id="mImg" src="" alt=""></div>
+          <div class="gside">
+            <div class="gthumb" onclick="openLB(1)"><img id="mTh1" src="" alt=""></div>
+            <div class="gthumb" onclick="openLB(2)"><img id="mTh2" src="" alt=""></div>
+          </div>
+        </div>
+        <div class="minfo">
+          <div class="minfo-blk"><h4 data-i18n="mSp">Specifications</h4><ul class="spl" id="mSpecs"></ul></div>
+          <div class="minfo-blk"><h4 data-i18n="mCo">Contact</h4><ul class="spl" id="mContact"></ul></div>
+        </div>
+        <p class="mdesc" id="mDesc"></p>
+        <div class="mcta">
+          <button class="btn-p" onclick="callAgent()" data-i18n="bCa">📞 Call Agent</button>
+          <button class="btn-s" onclick="swTab('tour')" data-i18n="bTo">🌐 View 360° Tour</button>
+        </div>
+      </div>
+      <div id="tcTour" style="display:none">
+        <div class="tour-wrap" id="tourWrap">
+          <div class="room-menu" id="roomMenu"><span class="rmenu-label" data-i18n="rmL">Rooms:</span></div>
+          <div id="tourViewer"><div id="pannellumTour"></div></div>
+          <div class="tour-nav">
+            <div class="tnav-arrows">
+              <button class="tnav-btn" id="btnPrev" onclick="tourNav(-1)">← <span data-i18n="tnPr">Prev</span></button>
+              <button class="tnav-btn nx" id="btnNext" onclick="tourNav(1)"><span data-i18n="tnNx">Next Room</span> →</button>
+            </div>
+            <div class="tour-dots" id="tourDots"></div>
+            <div class="tour-counter"><b id="tcCur">1</b>/<b id="tcTot">1</b> <span id="tcName" style="color:var(--iv)"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ADD PROPERTY MODAL -->
+<div class="moverlay" id="addModal">
+  <div class="mbox" style="max-width:700px">
+    <div class="mhead"><h3 data-i18n="adTi">Post a Property</h3><button class="mcls" onclick="closeModal('addModal')">✕</button></div>
+    <div class="mbody">
+      <div class="aform">
+        <div class="fgr">
+          <div class="fg ffl"><label class="fl" data-i18n="adNm">Title</label><input type="text" class="fi" id="nTitle" data-i18n-ph="adNmPH"></div>
+          <div class="fg"><label class="fl" data-i18n="adTy">Type</label>
+            <select class="fs" id="nType">
+              <option value="house" data-i18n="tHo">House</option><option value="apartment" data-i18n="tAp">Apartment</option>
+              <option value="land" data-i18n="tLa">Land</option><option value="villa" data-i18n="tVi">Villa</option>
+              <option value="commercial" data-i18n="tCo">Commercial</option>
+            </select>
+          </div>
+          <div class="fg"><label class="fl" data-i18n="adSt">Status</label>
+            <select class="fs" id="nStatus"><option value="sale" data-i18n="fSa">For Sale</option><option value="rent" data-i18n="fRe">For Rent</option></select>
+          </div>
+          <div class="fg"><label class="fl" data-i18n="adPr">Price (USD)</label><input type="number" class="fi" id="nPrice" placeholder="120000"></div>
+          <div class="fg"><label class="fl" data-i18n="adLo">Location</label><input type="text" class="fi" id="nLoc" placeholder="Sulaymaniyah, Azadi"></div>
+          <div class="fg"><label class="fl" data-i18n="adBe">Bedrooms</label><input type="number" class="fi" id="nBeds" placeholder="3"></div>
+          <div class="fg"><label class="fl" data-i18n="adBa">Bathrooms</label><input type="number" class="fi" id="nBath" placeholder="2"></div>
+          <div class="fg"><label class="fl" data-i18n="adAr">Area (m²)</label><input type="number" class="fi" id="nArea" placeholder="180"></div>
+          <div class="fg"><label class="fl" data-i18n="adPh">Phone</label><input type="tel" class="fi" id="nPhone" placeholder="+964 750..."></div>
+          <div class="fg ffl"><label class="fl" data-i18n="adDe">Description</label><textarea class="ft" id="nDesc" data-i18n-ph="adDePH"></textarea></div>
+          <div class="fg ffl">
+            <label class="fl">📷 <span data-i18n="adPho">Property Photos</span></label>
+            <div class="upload-zone" onclick="cldPhotos('new')">
+              <div class="uzi">📷</div>
+              <p><b data-i18n="uzB">Click to upload photos</b></p>
+              <p style="font-size:.72rem;margin-top:4px" data-i18n="uzH2">Stored permanently on Cloudinary</p>
+            </div>
+            <div class="photo-grid" id="nPhotoGrid"></div>
+          </div>
+          <div class="fg ffl">
+            <label class="fl" style="color:var(--gold);font-weight:700">🌐 <span data-i18n="ad36">360° Room Photos</span></label>
+            <div class="upload-zone" onclick="cldRoom('new')">
+              <div class="badge360">360°</div>
+              <div class="uzi">🌐</div>
+              <p><b data-i18n="uz36B">Click to upload a 360° room photo</b></p>
+              <p style="font-size:.72rem;margin-top:4px" data-i18n="uz36H">Upload one room at a time — name each room after uploading</p>
+            </div>
+            <div class="rul-list" id="nRoomList"></div>
+          </div>
+        </div>
+        <button class="btn-prim" onclick="submitProp()" data-i18n="adSub">Post Property</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EDIT MODAL -->
+<div class="moverlay" id="editModal">
+  <div class="mbox" style="max-width:700px">
+    <div class="mhead"><h3>✏️ <span data-i18n="edTi">Edit Property</span></h3><button class="mcls" onclick="closeModal('editModal')">✕</button></div>
+    <div class="mbody">
+      <div class="edit-sec">
+        <div class="edit-sec-title">📋 <span data-i18n="edBas">Basic Info</span></div>
+        <div class="fgr">
+          <div class="fg ffl"><label class="fl" data-i18n="adNm">Title</label><input type="text" class="fi" id="eTitle"></div>
+          <div class="fg"><label class="fl" data-i18n="adTy">Type</label>
+            <select class="fs" id="eType">
+              <option value="house" data-i18n="tHo">House</option><option value="apartment" data-i18n="tAp">Apartment</option>
+              <option value="land" data-i18n="tLa">Land</option><option value="villa" data-i18n="tVi">Villa</option>
+              <option value="commercial" data-i18n="tCo">Commercial</option>
+            </select>
+          </div>
+          <div class="fg"><label class="fl" data-i18n="adSt">Status</label>
+            <select class="fs" id="eStatus"><option value="sale" data-i18n="fSa">For Sale</option><option value="rent" data-i18n="fRe">For Rent</option></select>
+          </div>
+          <div class="fg"><label class="fl" data-i18n="adPr">Price (USD)</label><input type="number" class="fi" id="ePrice"></div>
+          <div class="fg"><label class="fl" data-i18n="adLo">Location</label><input type="text" class="fi" id="eLoc"></div>
+          <div class="fg"><label class="fl" data-i18n="adBe">Bedrooms</label><input type="number" class="fi" id="eBeds"></div>
+          <div class="fg"><label class="fl" data-i18n="adBa">Bathrooms</label><input type="number" class="fi" id="eBath"></div>
+          <div class="fg"><label class="fl" data-i18n="adAr">Area (m²)</label><input type="number" class="fi" id="eArea"></div>
+          <div class="fg"><label class="fl" data-i18n="adPh">Phone</label><input type="tel" class="fi" id="ePhone"></div>
+          <div class="fg ffl"><label class="fl" data-i18n="adDe">Description</label><textarea class="ft" id="eDesc"></textarea></div>
+        </div>
+      </div>
+      <div class="edit-sec">
+        <div class="edit-sec-title">📷 <span data-i18n="edPho">Photos</span> <span style="color:var(--gr);font-weight:400;font-size:.7rem">(click to delete · ★ main)</span></div>
+        <div class="photo-grid" id="ePhotoGrid"></div>
+        <button class="add-ph-btn" onclick="cldPhotos('edit')" style="margin-top:8px;width:auto;padding:0 14px;height:36px;border-radius:var(--r);font-size:.8rem">+ <span data-i18n="addPhoto">Add Photo</span></button>
+      </div>
+      <div class="edit-sec">
+        <div class="edit-sec-title">🌐 <span data-i18n="ed360">360° Rooms</span> <span style="color:var(--gr);font-weight:400;font-size:.7rem">(rename · add hotspots · delete)</span></div>
+        <div id="eRoomList"></div>
+        <button class="add-room-btn" onclick="cldRoom('edit')">+ <span data-i18n="addRoom">Add Room</span></button>
+      </div>
+      <div class="edit-sec"><button class="save-btn" onclick="saveEdit()">💾 <span data-i18n="saveBtn">Save Changes</span></button></div>
+    </div>
+  </div>
+</div>
+
+<!-- HOTSPOT EDITOR -->
+<div class="moverlay" id="hseModal">
+  <div class="mbox" style="max-width:900px;height:88vh">
+    <div class="mhead"><h3>🚪 <span data-i18n="hseTi">Place Door Hotspots</span></h3><button class="mcls" onclick="closeModal('hseModal')">✕</button></div>
+    <div class="hse-wrap">
+      <div class="hse-tb">
+        <span class="hse-title" id="hseRoomLabel">Room</span>
+        <button class="hse-btn placing" id="hsePlaceBtn" onclick="toggleHsePlacing()">🎯 <span data-i18n="hseClick">Click on image to place hotspot</span></button>
+        <button class="hse-btn sv" onclick="saveHotspots()">💾 <span data-i18n="hseSave">Save</span></button>
+        <span style="font-size:.73rem;color:var(--gr)" data-i18n="hseHint">Select target room below ↓</span>
+      </div>
+      <div class="hse-viewer">
+        <div id="hseViewer"></div>
+        <div class="hse-cross" id="hseCross"><div class="hse-cross-msg" data-i18n="hseCrossMsg">👆 Click exactly on the door / entrance</div></div>
+      </div>
+      <div class="hse-hs-list" id="hseHsList"></div>
+      <div class="hse-rooms" id="hseRoomPills"></div>
+    </div>
+  </div>
+</div>
+
+<!-- LOGIN -->
+<div class="moverlay" id="loginModal">
+  <div class="login-box">
+    <div style="font-size:2rem;margin-bottom:10px">🔑</div>
+    <h3>Admin</h3>
+    <p data-i18n="loginP">Enter password</p>
+    <input type="password" class="fi" id="adminPw" placeholder="••••••••" style="margin-bottom:10px;text-align:center;letter-spacing:.15em" onkeydown="if(event.key==='Enter')checkPw()">
+    <button class="btn-prim" onclick="checkPw()" data-i18n="loginBtn">Login</button>
+    <div class="login-err" id="loginErr"></div>
+    <button onclick="closeModal('loginModal')" style="margin-top:12px;background:none;border:none;color:var(--gr);font-size:.78rem;cursor:pointer;font-family:inherit" data-i18n="cancelBtn">Cancel</button>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" onclick="closeLB()">✕</button>
+  <button class="lb-arrow lb-prev" id="lbPrev" onclick="lbNav(-1)">‹</button>
+  <div class="lb-img-wrap"><img id="lbImg" src="" alt=""></div>
+  <button class="lb-arrow lb-next" id="lbNext" onclick="lbNav(1)">›</button>
+  <div class="lb-strip" id="lbStrip"></div>
+  <div class="lb-counter" id="lbCounter">1 / 1</div>
+</div>
+
+<div class="toast" id="toastEl"></div>
+
+<script>
+// ══════════════════════════════════
+// CONFIG — change before deploying
+// ══════════════════════════════════
+const ADMIN_PW    = 'nawzad2025';
+const SECRET_WORD = 'n@wzad';
+const CLD_CLOUD   = 'drgabhh8j';
+const CLD_PRESET  = 'nawzad_estate';
+const TG_TOKEN    = '8761400946:AAGBM3jbevCmJg7-MLe4EOnt7hzEm-5F9yw';
+const TG_CHAT     = '7364722203';
+const BIN_ID      = '6a2eca45da38895dfebf3454';
+const BIN_KEY     = '$2a$10$LUYr3y57RRkPp2wp3DOQ1esukOO8qDETLOl6V2j5m6piqFwKOWh8i';
+const BIN_URL     = 'https://api.jsonbin.io/v3/b/' + BIN_ID;
+
+// ══════════════════════════════════
+// i18n
+// ══════════════════════════════════
+const T = {
+en:{
+  nProp:'Properties',nFeat:'Features',nCont:'Contact',nPost:'Post Property',logoutBtn:'Logout',
+  hEy:'Premium Real Estate in Kurdistan',
+  hT:'Find Your <em>Dream Home</em><br>in Kurdistan',
+  hS:'Browse houses, apartments and land — walk through every room with immersive 360° virtual tours.',
+  sAll:'All Types',tHo:'House',tAp:'Apartment',tLa:'Land',tVi:'Villa',tCo:'Commercial',
+  sAS:'Sale or Rent',fSa:'For Sale',fRe:'For Rent',sPH:'Sulaymaniyah, Erbil...',sSB:'Search',
+  stLS:'Listings',stT:'Virtual Tours',stLg:'Languages',stSu:'Support',scD:'Scroll',
+  pEy:'BROWSE LISTINGS',pTi:'Featured Properties',pSu:'Walk through every room with 360° virtual tours',
+  fAl:'All',fHo:'Houses',fAp:'Apartments',fLa:'Land',fVi:'Villas',fCo:'Commercial',fSale:'For Sale',fRent:'For Rent',
+  ftEy:'WHY CHOOSE US',ftTi:'Built for the Modern Buyer',
+  f1T:'Room-by-Room 360° Tours',f1D:'Walk through every room like Google Street View.',
+  f2T:'Click Through Doors',f2D:'Glowing hotspots let you walk naturally from room to room.',
+  f3T:'3 Languages',f3D:'Kurdish Sorani, Arabic and English with proper RTL.',
+  f4T:'Mobile Ready',f4D:'Tilt your phone to look around in 360°.',
+  f5T:'Permanent Photos',f5D:'All photos on Cloudinary — never disappear.',
+  f6T:'Direct Contact',f6D:'Buyers message you directly on Telegram.',
+  ctT:'Interested in a Property?',ctS:'Contact our team in Sulaymaniyah.',ctB:'📞 Contact Us',
+  coEy:'GET IN TOUCH',coTi:'Contact Us',coSu:"We're here to help",
+  coDe:'Looking for a property? Our team is in Sulaymaniyah.',
+  coCi:'Sulaymaniyah, Kurdistan',coHr:'Sat–Thu, 9am–7pm',
+  coNm:'Name',coNmPH:'Your full name',coPh:'Phone',coMs:'Message',coMsPH:'How can we help?',coSn:'Send Message',
+  foD:'Premium real estate listings across Kurdistan with 360° virtual tours.',
+  foP:'Properties',foCi:'Cities',foCo:'Company',foAb:'About',foTe:'Terms',foPr:'Privacy',
+  foRi:'All rights reserved.',foMa:'Made in Sulaymaniyah 🇮🇶',
+  tbDe:'Details',tbTo:'360° Tour',mSp:'Specifications',mCo:'Contact',bCa:'📞 Call Agent',bTo:'🌐 View 360° Tour',
+  rmL:'Rooms:',tnPr:'Prev',tnNx:'Next Room',
+  adTi:'Post a Property',adNm:'Title',adNmPH:'e.g. Modern Villa in Azadi',
+  adTy:'Type',adSt:'Status',adPr:'Price (USD)',adLo:'Location',adBe:'Bedrooms',
+  adBa:'Bathrooms',adAr:'Area (m²)',adPh:'Phone',adDe:'Description',adDePH:'Describe the property...',
+  adPho:'Property Photos',uzB:'Click to upload photos',uzH2:'Stored permanently on Cloudinary',
+  ad36:'360° Room Photos',uz36B:'Click to upload a 360° room photo',uz36H:'Upload one room at a time',
+  adSub:'Post Property',
+  edTi:'Edit Property',edBas:'Basic Info',edPho:'Photos',ed360:'360° Rooms',
+  addPhoto:'Add Photo',addRoom:'Add Room',saveBtn:'Save Changes',
+  hseTi:'Place Door Hotspots',hseClick:'Click on image to place hotspot',
+  hseSave:'Save',hseHint:'Select target room below ↓',hseCrossMsg:'👆 Click exactly on the door / entrance',
+  loginP:'Enter password',loginBtn:'Login',cancelBtn:'Cancel',
+  noTour:'No 360° tour for this property.',
+  noProps:'No properties found.',loading:'Loading listings...',
+},
+ku:{
+  nProp:'خانووەکان',nFeat:'تایبەتمەندییەکان',nCont:'پەیوەندی',nPost:'خانوو تۆمار بکە',logoutBtn:'دەرچوون',
+  hEy:'خانوو و زەوی لە کوردستان',
+  hT:'خانووی <em>خەونەکەت</em><br>بدۆزەرەوە',
+  hS:'خانوو، شووقە و زەوی بگەڕێ — هەر ژوور بگەڕێ بە گەشتی ٣٦٠°.',
+  sAll:'هەموو جۆرەکان',tHo:'خانوو',tAp:'شووقە',tLa:'زەوی',tVi:'ڤیلا',tCo:'بازرگانی',
+  sAS:'فرۆشتن یان کرێ',fSa:'بۆ فرۆشتن',fRe:'بۆ کرێ',sPH:'سلێمانی، هەولێر...',sSB:'گەڕان',
+  stLS:'تۆمارکراو',stT:'گەشتی ٣٦٠°',stLg:'زمان',stSu:'پشتگیری',scD:'بچرۆ خوارەوە',
+  pEy:'تۆمارەکان',pTi:'خانووە تایبەتەکان',pSu:'هەر ژوور بگەڕێ بە گەشتی ٣٦٠°',
+  fAl:'هەموو',fHo:'خانووەکان',fAp:'شووقەکان',fLa:'زەوی',fVi:'ڤیلاکان',fCo:'بازرگانی',fSale:'بۆ فرۆشتن',fRent:'بۆ کرێ',
+  ftEy:'بۆچی ئێمە',ftTi:'بۆ کڕیارە مۆدێرنەکان',
+  f1T:'گەشتی ٣٦٠° هەر ژوور',f1D:'ماندوو بە ژوورەکان بگەڕێ وەک گووگڵ ستریت ڤیو.',
+  f2T:'چوون لە ڕێگای دەرگاکان',f2D:'دوگمەی دەرگا کلیک بکە بۆ چوون لە ژوورێک بۆ ژووری دیکە.',
+  f3T:'٣ زمان',f3D:'کوردی سۆرانی، عەرەبی و ئینگلیزی.',
+  f4T:'مۆبایل',f4D:'موبایلەکە جوڵێنە بۆ سەیرکردنی ٣٦٠°.',
+  f5T:'وێنەی هەمیشەیی',f5D:'هەموو وێنەکان لە Cloudinary — هەرگیز نامێنن.',
+  f6T:'پەیوەندی ڕاستەوخۆ',f6D:'کڕیار ڕاستەوخۆ لە Telegram پەیوەندیت پێوە دەگرێت.',
+  ctT:'بۆ خانوویەک سەرچاوەدەکەیت؟',ctS:'تیمی ئێمە لە سلێمانی پەیوەندیمان پێوە بکە.',ctB:'📞 پەیوەندیمان پێوە بکە',
+  coEy:'پەیوەندی',coTi:'پەیوەندیمان پێوە بکە',coSu:'ئێمە ئامادەین',
+  coDe:'بۆ خانوویەک دەگەڕێیت؟ تیمی ئێمە لە سلێمانی هەیە.',
+  coCi:'سلێمانی، کوردستان',coHr:'شەممە-پێنجشەممە، ٩ص-٧ع',
+  coNm:'ناوت',coNmPH:'ناوی تەواوت',coPh:'تەلەفۆن',coMs:'نامە',coMsPH:'چۆن یارمەتیت بدەین؟',coSn:'ناردن',
+  foD:'تۆمارکردنی خانووو زەوی لە کوردستان بە گەشتی ٣٦٠°.',
+  foP:'خانووەکان',foCi:'شارەکان',foCo:'کۆمپانیا',foAb:'دەربارە',foTe:'مەرجەکان',foPr:'پاراستن',
+  foRi:'هەموو مافەکان پارێزراون.',foMa:'دروستکراوە لە سلێمانی 🇮🇶',
+  tbDe:'وردەکاری',tbTo:'گەشتی ٣٦٠°',mSp:'تایبەتمەندییەکان',mCo:'پەیوەندی',bCa:'📞 پەیوەندی',bTo:'🌐 گەشتی ٣٦٠°',
+  rmL:'ژوورەکان:',tnPr:'پێشوو',tnNx:'ژووری داهاتوو',
+  adTi:'خانوو تۆمار بکە',adNm:'ناو',adNmPH:'مەسەلەن: ڤیلای مۆدێرن لە ئازادی',
+  adTy:'جۆر',adSt:'دۆخ',adPr:'نرخ (دۆلار)',adLo:'شوێن',adBe:'ژووری نووستن',
+  adBa:'حەمام',adAr:'فراوانی (م²)',adPh:'تەلەفۆن',adDe:'وەسف',adDePH:'خانووەکە وەسف بکە...',
+  adPho:'وێنەکانی خانوو',uzB:'کلیک بکە بۆ بارکردنی وێنە',uzH2:'بە هەمیشەیی لە Cloudinary هەڵدەگیرێت',
+  ad36:'وێنەکانی ٣٦٠° ژوورەکان',uz36B:'کلیک بکە بۆ بارکردنی وێنەی ٣٦٠°',uz36H:'یەک ژوور بار بکە',
+  adSub:'تۆماركردن',
+  edTi:'گۆڕانکاری لە خانوو',edBas:'زانیاری سەرەکی',edPho:'وێنەکان',ed360:'ژوورەکانی ٣٦٠°',
+  addPhoto:'زیادکردنی وێنە',addRoom:'زیادکردنی ژوور',saveBtn:'پاشەکەوتکردن',
+  hseTi:'دانانی دەرگاکان',hseClick:'لەسەر وێنە کلیک بکە',
+  hseSave:'پاشەکەوت',hseHint:'ژووری مەبەست هەڵبژێرە ↓',hseCrossMsg:'👆 لەسەر دەرگاکە کلیک بکە',
+  loginP:'تێپەڕەوشە بنووسە',loginBtn:'چوونەژوورەوە',cancelBtn:'پەشیمانبوون',
+  noTour:'گەشتی ٣٦٠° نییە بۆ ئەم خانووە.',
+  noProps:'هیچ خانووێک نەدوزرایەوە.',loading:'خانووەکان دێن...',
+},
+ar:{
+  nProp:'العقارات',nFeat:'المميزات',nCont:'اتصل بنا',nPost:'أضف عقاراً',logoutBtn:'خروج',
+  hEy:'عقارات مميزة في كوردستان',
+  hT:'ابحث عن <em>منزل أحلامك</em><br>في كوردستان',
+  hS:'تصفح البيوت والشقق والأراضي — جول في كل غرفة بجولات افتراضية 360°.',
+  sAll:'كل الأنواع',tHo:'بيت',tAp:'شقة',tLa:'أرض',tVi:'فيلا',tCo:'تجاري',
+  sAS:'بيع أو إيجار',fSa:'للبيع',fRe:'للإيجار',sPH:'السليمانية، أربيل...',sSB:'بحث',
+  stLS:'إعلان',stT:'جولة 360°',stLg:'لغة',stSu:'دعم',scD:'للأسفل',
+  pEy:'تصفح الإعلانات',pTi:'العقارات المميزة',pSu:'جول في كل غرفة بجولات 360°',
+  fAl:'الكل',fHo:'بيوت',fAp:'شقق',fLa:'أراضي',fVi:'فيلات',fCo:'تجاري',fSale:'للبيع',fRent:'للإيجار',
+  ftEy:'لماذا نحن',ftTi:'مصمم للمشتري العصري',
+  f1T:'جولات 360° غرفة بغرفة',f1D:'تجول في كل غرفة مثل Google Street View.',
+  f2T:'المشي عبر الأبواب',f2D:'انقر على نقاط الأبواب للانتقال بين الغرف.',
+  f3T:'3 لغات',f3D:'الكوردية والعربية والإنجليزية مع RTL.',
+  f4T:'جاهز للموبايل',f4D:'حرّك هاتفك للتجول في 360°.',
+  f5T:'صور دائمة',f5D:'كل الصور على Cloudinary — لا تختفي أبداً.',
+  f6T:'تواصل مباشر',f6D:'المشترون يتواصلون معك مباشرة على Telegram.',
+  ctT:'مهتم بعقار؟',ctS:'تواصل مع فريقنا في السليمانية.',ctB:'📞 اتصل بنا',
+  coEy:'تواصل معنا',coTi:'اتصل بنا',coSu:'نحن هنا للمساعدة',
+  coDe:'تبحث عن عقار؟ فريقنا في السليمانية.',
+  coCi:'السليمانية، كوردستان',coHr:'السبت-الخميس، 9ص-7م',
+  coNm:'الاسم',coNmPH:'اسمك الكامل',coPh:'الهاتف',coMs:'الرسالة',coMsPH:'كيف يمكننا مساعدتك؟',coSn:'إرسال',
+  foD:'إعلانات عقارية مميزة في كوردستان مع جولات 360°.',
+  foP:'العقارات',foCi:'المدن',foCo:'الشركة',foAb:'عن الشركة',foTe:'الشروط',foPr:'الخصوصية',
+  foRi:'جميع الحقوق محفوظة.',foMa:'صُنع في السليمانية 🇮🇶',
+  tbDe:'التفاصيل',tbTo:'جولة 360°',mSp:'المواصفات',mCo:'التواصل',bCa:'📞 اتصل',bTo:'🌐 جولة 360°',
+  rmL:'الغرف:',tnPr:'السابق',tnNx:'الغرفة التالية',
+  adTi:'نشر عقار',adNm:'العنوان',adNmPH:'مثال: فيلا حديثة في أزادي',
+  adTy:'النوع',adSt:'الحالة',adPr:'السعر (دولار)',adLo:'الموقع',adBe:'غرف النوم',
+  adBa:'الحمامات',adAr:'المساحة (م²)',adPh:'الهاتف',adDe:'الوصف',adDePH:'صف العقار...',
+  adPho:'صور العقار',uzB:'اضغط لرفع الصور',uzH2:'مخزنة بشكل دائم على Cloudinary',
+  ad36:'صور الغرف 360°',uz36B:'اضغط لرفع صورة 360°',uz36H:'ارفع غرفة واحدة في كل مرة',
+  adSub:'نشر العقار',
+  edTi:'تعديل العقار',edBas:'المعلومات الأساسية',edPho:'الصور',ed360:'الغرف 360°',
+  addPhoto:'إضافة صورة',addRoom:'إضافة غرفة',saveBtn:'حفظ التغييرات',
+  hseTi:'وضع نقاط الأبواب',hseClick:'انقر على الصورة لوضع نقطة',
+  hseSave:'حفظ',hseHint:'اختر الغرفة المستهدفة أدناه ↓',hseCrossMsg:'👆 انقر على الباب',
+  loginP:'أدخل كلمة المرور',loginBtn:'دخول',cancelBtn:'إلغاء',
+  noTour:'لا توجد جولة 360° لهذا العقار.',
+  noProps:'لا توجد عقارات.',loading:'جاري تحميل العقارات...',
+}};
+
+let lang='en', L=T.en;
+function setLang(l){
+  lang=l; L=T[l];
+  const rtl=l==='ku'||l==='ar';
+  document.documentElement.setAttribute('lang',l);
+  document.documentElement.setAttribute('dir',rtl?'rtl':'ltr');
+  document.querySelectorAll('.lb').forEach(function(b){b.classList.remove('on');});
+  document.querySelectorAll('.lb').forEach(function(b){
+    if((l==='en'&&b.textContent==='EN')||(l==='ku'&&b.textContent==='کو')||(l==='ar'&&b.textContent==='ع'))b.classList.add('on');
+  });
+  applyT(); renderProps();
+}
+function applyT(){
+  document.querySelectorAll('[data-i18n]').forEach(function(el){var k=el.dataset.i18n;if(L[k]!==undefined)el.innerHTML=L[k];});
+  document.querySelectorAll('[data-i18n-ph]').forEach(function(el){var k=el.dataset.i18nPh;if(L[k])el.placeholder=L[k];});
+}
+
+// ══════════════════════════════════
+// JSONBIN
+// ══════════════════════════════════
+let props=[];
+async function dbLoad(){
+  document.getElementById('pgrid').innerHTML='<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--gr)"><div style="font-size:2rem;display:inline-block;animation:spin 1s linear infinite">⏳</div><p style="margin-top:12px">'+L.loading+'</p></div>';
+  try{
+    const res=await fetch(BIN_URL+'/latest',{headers:{'X-Master-Key':BIN_KEY}});
+    const data=await res.json();
+    props=(data.record&&data.record.props)?data.record.props:[];
+  }catch(e){props=[];}
+  renderProps();
+  animateStat();
+}
+async function dbSave(){
+  try{
+    await fetch(BIN_URL,{method:'PUT',headers:{'Content-Type':'application/json','X-Master-Key':BIN_KEY},body:JSON.stringify({props:props})});
+  }catch(e){toast('⚠️ Save failed — check internet');}
+}
+
+// ══════════════════════════════════
+// RENDER CARDS
+// ══════════════════════════════════
+let catF='all', stF='';
+function renderProps(){
+  const g=document.getElementById('pgrid');
+  let list=props.filter(function(p){
+    if(catF!=='all'&&p.type!==catF)return false;
+    if(stF&&p.status!==stF)return false;
+    var q=(document.getElementById('sQ').value||'').toLowerCase();
+    if(q&&!(p.loc.toLowerCase().indexOf(q)>=0||Object.values(p.title).some(function(v){return v.toLowerCase().indexOf(q)>=0;})))return false;
+    var st=document.getElementById('sStatus').value;
+    if(st&&p.status!==st)return false;
+    var ty=document.getElementById('sType').value;
+    if(ty&&p.type!==ty)return false;
+    return true;
+  });
+  document.getElementById('stL').textContent=props.length;
+  if(!list.length){g.innerHTML='<div style="text-align:center;padding:60px;color:var(--gr);width:100%"><div style="font-size:3rem;margin-bottom:12px">🏠</div><p>'+L.noProps+'</p></div>';return;}
+  g.innerHTML=list.map(function(p){
+    var ti=p.title[lang]||p.title.en;
+    var tk='t'+p.type.charAt(0).toUpperCase()+p.type.slice(1);
+    var has360=p.rooms&&p.rooms.length>0;
+    return '<div class="pcard" onclick="openProp('+p.id+')">'+
+      '<div class="card-img">'+
+        '<img src="'+p.img+'" alt="'+ti.replace(/"/g,"'")+'" loading="lazy">'+
+        '<span class="cbadge '+(p.status==='sale'?'bs':'br')+'">'+(p.status==='sale'?L.fSa:L.fRe)+'</span>'+
+        (p.isNew?'<span class="cnew">NEW</span>':'')+
+        '<button class="card-del-btn" onclick="delProp('+p.id+',event)">✕</button>'+
+        '<button class="card-edit-btn" onclick="openEdit('+p.id+',event)">✏️</button>'+
+        '<div class="c360-ov">'+(has360?'<button class="c360-btn" onclick="event.stopPropagation();openTour('+p.id+')">🌐 360° Tour</button>':'')+'</div>'+
+      '</div>'+
+      '<div class="cbody">'+
+        '<div class="ctype">'+(L[tk]||p.type)+'</div>'+
+        '<div class="ctitle">'+ti+'</div>'+
+        '<div class="cloc">📍 '+p.loc+'</div>'+
+        '<div class="cspecs">'+
+          (p.beds>0?'<div class="spec">🛏 '+p.beds+'</div>':'')+
+          (p.baths>0?'<div class="spec">🚿 '+p.baths+'</div>':'')+
+          '<div class="spec">📐 '+p.area+'m²</div>'+
+          (has360?'<div class="spec" style="color:var(--gold)">🌐 '+p.rooms.length+' rooms</div>':'')+
+        '</div>'+
+        '<div class="cfoot">'+
+          '<div class="cprice">'+p.cur+p.price.toLocaleString()+'<small>'+(p.pU||'')+'</small></div>'+
+          '<button class="btn-det" onclick="event.stopPropagation();openProp('+p.id+')">'+L.tbDe+'</button>'+
+        '</div>'+
+      '</div>'+
+    '</div>';
+  }).join('');
+}
+function fCat(c,btn){catF=c;stF='';document.querySelectorAll('.fb').forEach(function(b){b.classList.remove('on');});btn.classList.add('on');renderProps();}
+function fSt(s,btn){stF=(stF===s?'':s);catF='all';document.querySelectorAll('.fb').forEach(function(b){b.classList.remove('on');});if(stF)btn.classList.add('on');renderProps();}
+function doSearch(){renderProps();}
+
+// ══════════════════════════════════
+// MODAL HELPERS
+// ══════════════════════════════════
+function openModal(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden';}
+function closeModal(id){
+  document.getElementById(id).classList.remove('open');
+  if(!document.querySelector('.moverlay.open'))document.body.style.overflow='';
+  if(id==='propModal'){destroyViewer();curProp=null;}
+  if(id==='hseModal'&&hseViewer){try{hseViewer.destroy();}catch(e){}hseViewer=null;}
+}
+document.querySelectorAll('.moverlay').forEach(function(m){
+  m.addEventListener('click',function(e){if(e.target===m)closeModal(m.id);});
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape')document.querySelectorAll('.moverlay.open').forEach(function(m){closeModal(m.id);});
+  if(document.getElementById('lightbox').classList.contains('open')){
+    if(e.key==='ArrowLeft')lbNav(-1);
+    if(e.key==='ArrowRight')lbNav(1);
+  }
+});
+
+// ══════════════════════════════════
+// OPEN PROPERTY
+// ══════════════════════════════════
+let curProp=null, curRoom=0, viewerInst=null;
+function openProp(id){
+  var p=props.find(function(x){return x.id===id;});if(!p)return;
+  curProp=p; curRoom=0;
+  var ti=p.title[lang]||p.title.en;
+  var de=p.desc?p.desc[lang]||p.desc.en:'';
+  document.getElementById('mTitle').textContent=ti;
+  var allImgs=p.photos&&p.photos.length?p.photos:(p.img?[p.img]:[]);
+  document.getElementById('mImg').src=allImgs[0]||'';
+  document.getElementById('mTh1').src=allImgs[1]||allImgs[0]||'';
+  document.getElementById('mTh2').src=allImgs[2]||allImgs[0]||'';
+  document.getElementById('mDesc').textContent=de;
+  var tk='t'+p.type.charAt(0).toUpperCase()+p.type.slice(1);
+  document.getElementById('mSpecs').innerHTML=
+    '<li><span>'+L.adTy+'</span><span>'+(L[tk]||p.type)+'</span></li>'+
+    '<li><span>'+L.adAr+'</span><span>'+p.area+' m²</span></li>'+
+    (p.beds>0?'<li><span>'+L.adBe+'</span><span>'+p.beds+'</span></li>':'')+
+    (p.baths>0?'<li><span>'+L.adBa+'</span><span>'+p.baths+'</span></li>':'')+
+    '<li><span>'+L.adSt+'</span><span>'+(p.status==='sale'?L.fSa:L.fRe)+'</span></li>'+
+    '<li><span>'+L.adPr+'</span><span style="color:var(--gold);font-weight:700">'+p.cur+p.price.toLocaleString()+(p.pU||'')+'</span></li>';
+  document.getElementById('mContact').innerHTML=
+    '<li><span>'+L.adPh+'</span><span>'+(p.agent||'-')+'</span></li>'+
+    '<li><span>'+L.adLo+'</span><span>'+p.loc+'</span></li>'+
+    (p.rooms&&p.rooms.length?'<li><span>360°</span><span style="color:var(--green)">✅ '+p.rooms.length+' rooms</span></li>':'');
+  swTab('det');
+  openModal('propModal');
+}
+function openTour(id){var p=props.find(function(x){return x.id===id;});if(!p)return;curProp=p;curRoom=0;openModal('propModal');swTab('tour');}
+function callAgent(){if(curProp)window.location.href='tel:'+(curProp.agent||'').replace(/\s/g,'');}
+
+// ── TABS ──
+function swTab(t){
+  document.getElementById('tcDet').style.display=t==='det'?'block':'none';
+  document.getElementById('tcTour').style.display=t==='tour'?'block':'none';
+  document.getElementById('tabDet').classList.toggle('on',t==='det');
+  document.getElementById('tabTour').classList.toggle('on',t==='tour');
+  if(t==='tour'&&curProp){buildRoomMenu();loadRoom(curRoom);}
+  if(t==='det')destroyViewer();
+}
+
+// ── ROOM MENU ──
+function buildRoomMenu(){
+  var p=curProp;
+  var rm=document.getElementById('roomMenu');
+  if(!p||!p.rooms||!p.rooms.length){rm.innerHTML='<span style="font-size:.8rem;color:var(--gr)">'+L.noTour+'</span>';return;}
+  rm.innerHTML='<span class="rmenu-label">'+L.rmL+'</span>'+
+    p.rooms.map(function(r,i){
+      return '<button class="room-btn'+(i===curRoom?' on':'')+'" onclick="goRoom('+i+')"><span>'+r.icon+'</span> '+r.name+'</button>';
+    }).join('');
+}
+function buildDots(){
+  var p=curProp;if(!p||!p.rooms)return;
+  document.getElementById('tourDots').innerHTML=p.rooms.map(function(r,i){
+    return '<div class="tdot'+(i===curRoom?' now':i<curRoom?' vis':'')+'" onclick="goRoom('+i+')" title="'+r.name+'"></div>';
+  }).join('');
+  document.getElementById('tcCur').textContent=curRoom+1;
+  document.getElementById('tcTot').textContent=p.rooms.length;
+  document.getElementById('tcName').textContent=p.rooms[curRoom]?p.rooms[curRoom].name:'';
+}
+function goRoom(i){curRoom=i;loadRoom(i);}
+function tourNav(d){var n=curRoom+d;if(n<0||!curProp||n>=curProp.rooms.length)return;curRoom=n;loadRoom(n);}
+
+// ── LOAD 360 ROOM ──
+function loadRoom(i){
+  var p=curProp;
+  if(!p||!p.rooms||!p.rooms.length){
+    document.getElementById('pannellumTour').innerHTML='<div class="no-tour"><div class="ni">🌐</div><p>'+L.noTour+'</p></div>';
+    document.getElementById('roomMenu').innerHTML='<span style="font-size:.8rem;color:var(--gr)">'+L.noTour+'</span>';
+    document.getElementById('tourDots').innerHTML='';
+    document.getElementById('btnPrev').disabled=true;
+    document.getElementById('btnNext').disabled=true;
+    return;
+  }
+  document.querySelectorAll('.room-btn').forEach(function(b,idx){b.classList.toggle('on',idx===i);});
+  document.getElementById('btnPrev').disabled=(i===0);
+  document.getElementById('btnNext').disabled=(i===p.rooms.length-1);
+  buildDots();
+  var room=p.rooms[i];
+  destroyViewer();
+  // build hotspot config
+  var hsCfg=[];
+  if(room.hotspots&&room.hotspots.length){
+    hsCfg=room.hotspots.map(function(hs){
+      var tr=p.rooms[hs.targetIdx];
+      if(!tr)return null;
+      var label=tr.icon+' '+tr.name;
+      var idx=hs.targetIdx;
+      return{pitch:hs.pitch,yaw:hs.yaw,type:'custom',cssClass:'hs-dot',
+        createTooltipFunc:function(div){div.innerHTML='<div class="hs-dot-inner">🚶</div><div class="hs-label">'+label+'</div>';},
+        clickHandlerFunc:function(){curRoom=idx;loadRoom(idx);}
+      };
+    }).filter(Boolean);
+  }
+  // hint
+  if(i===0&&hsCfg.length){
+    showHint(lang==='ar'?'انقر السهم للدخول':lang==='ku'?'دوگمەکە بکە بۆ چوون ناو':'Click the arrow to walk in');
+  }
+  document.getElementById('pannellumTour').innerHTML='';
+  setTimeout(function(){
+    try{
+      viewerInst=pannellum.viewer('pannellumTour',{
+        type:'equirectangular',panorama:room.src,autoLoad:true,
+        autoRotate:hsCfg.length?0:-1.2,showControls:true,orientationOnByDefault:true,
+        hotSpots:hsCfg,strings:{loadButtonLabel:'Click to Load',loadingLabel:'Loading...'}
+      });
+    }catch(e){document.getElementById('pannellumTour').innerHTML='<div class="no-tour"><div class="ni">⚠️</div><p>Could not load image.</p></div>';}
+  },80);
+}
+var hintTimer=null;
+function showHint(msg){
+  var tw=document.getElementById('tourWrap');
+  var old=tw.querySelector('.enter-hint');if(old)old.remove();
+  if(!msg)return;
+  var h=document.createElement('div');h.className='enter-hint';h.textContent=msg;
+  tw.appendChild(h);clearTimeout(hintTimer);hintTimer=setTimeout(function(){h.remove();},4000);
+}
+function destroyViewer(){
+  if(viewerInst){try{viewerInst.destroy();}catch(e){}viewerInst=null;}
+  var c=document.getElementById('pannellumTour');if(c)c.innerHTML='';
+}
+
+// ══════════════════════════════════
+// CLOUDINARY
+// ══════════════════════════════════
+var ROOM_ICONS={exterior:'🌿',living:'🛋',bedroom:'🛏',kitchen:'🍳',bath:'🚿',dining:'🪑',garden:'🌳',garage:'🚗',balcony:'🌅',pool:'🏊',study:'📚'};
+function cldWidget(opts){
+  return cloudinary.createUploadWidget({
+    cloudName:CLD_CLOUD,uploadPreset:CLD_PRESET,folder:opts.folder||'nawzad',
+    multiple:opts.multiple||false,sources:['local','camera'],maxFileSize:25000000,
+    clientAllowedFormats:['jpg','jpeg','png','webp'],
+    styles:{palette:{window:'#162130',windowBorder:'#2E4560',tabIcon:'#C9923B',
+      menuIcons:'#8BA4B8',textDark:'#F7F3ED',textLight:'#8BA4B8',
+      link:'#C9923B',action:'#C9923B',inactiveTabIcon:'#8BA4B8',
+      error:'#E05B5B',inProgress:'#C9923B',complete:'#4CAF7D',sourceBg:'#1E2D3E'}}
+  },function(err,res){if(!err&&res&&res.event==='success')opts.onSuccess(res.info.secure_url,res.info.original_filename);});
+}
+
+// ── ADD PROPERTY STATE ──
+var newPhotos=[], newRooms=[];
+function openAdd(){
+  if(!isAdmin){openModal('loginModal');return;}
+  newPhotos=[]; newRooms=[];
+  ['nTitle','nPrice','nLoc','nBeds','nBath','nArea','nPhone','nDesc'].forEach(function(id){document.getElementById(id).value='';});
+  document.getElementById('nPhotoGrid').innerHTML='';
+  document.getElementById('nRoomList').innerHTML='';
+  openModal('addModal');
+}
+function cldPhotos(mode){
+  var w=cldWidget({multiple:true,folder:'nawzad/photos',onSuccess:function(url){
+    if(mode==='new'){newPhotos.push({src:url,isMain:newPhotos.length===0});renderNewPhotos();}
+    else{editPhotos.push({src:url,isMain:editPhotos.length===0});renderEditPhotos();}
+  }});w.open();
+}
+function cldRoom(mode){
+  var w=cldWidget({multiple:false,folder:'nawzad/360',onSuccess:function(url,name){
+    var clean=(name||'').replace(/[-_]/g,' ').replace(/\.[^.]+$/,'');
+    var nl=clean.toLowerCase(); var icon='🏠';
+    Object.keys(ROOM_ICONS).forEach(function(k){if(nl.indexOf(k)>=0)icon=ROOM_ICONS[k];});
+    var room={name:clean||'Room '+(newRooms.length+1),icon:icon,src:url,hotspots:[]};
+    if(mode==='new'){newRooms.push(room);renderNewRooms();}
+    else{editRooms.push(room);renderEditRooms();}
+  }});w.open();
+}
+function renderNewPhotos(){
+  var g=document.getElementById('nPhotoGrid');
+  g.innerHTML=newPhotos.map(function(ph,i){
+    return '<div class="ph-item'+(ph.isMain?' main':'')+'" onclick="delNewPhoto('+i+')" title="Click to remove"><img src="'+ph.src+'"><div class="ph-del">✕</div></div>';
+  }).join('');
+}
+function delNewPhoto(i){var m=newPhotos[i].isMain;newPhotos.splice(i,1);if(m&&newPhotos.length)newPhotos[0].isMain=true;renderNewPhotos();}
+function renderNewRooms(){
+  var l=document.getElementById('nRoomList');
+  l.innerHTML=newRooms.map(function(r,i){
+    var hc=r.hotspots?r.hotspots.length:0;
+    return '<div class="rul-item">'+
+      '<div class="rul-thumb"><img src="'+r.src+'"></div>'+
+      '<div class="rul-info">'+
+        '<input class="rul-name" value="'+r.name+'" placeholder="Room name" onchange="newRooms['+i+'].name=this.value;renderNewRooms()">'+
+        '<div style="margin-top:5px;display:flex;gap:6px;align-items:center">'+
+          '<select class="rul-icon-sel" onchange="newRooms['+i+'].icon=this.value">'+
+            Object.entries(ROOM_ICONS).map(function(e){return '<option value="'+e[1]+'"'+(e[1]===r.icon?' selected':'')+'>'+e[1]+' '+e[0]+'</option>';}).join('')+
+          '</select>'+
+          '<span style="font-size:.7rem;color:var(--gr)">'+(i===0?'(Exterior)':'')+'</span>'+
+        '</div>'+
+      '</div>'+
+      '<button class="rul-hs-btn" onclick="openHse(\'new\','+i+')">🚪 '+(hc?hc+' hs':'Hotspots')+'</button>'+
+      '<button class="rul-rm" onclick="newRooms.splice('+i+',1);renderNewRooms()">✕</button>'+
+    '</div>';
+  }).join('');
+}
+function submitProp(){
+  var title=document.getElementById('nTitle').value.trim();
+  var price=parseFloat(document.getElementById('nPrice').value);
+  var loc=document.getElementById('nLoc').value.trim();
+  if(!title||!price||!loc){toast('⚠️ '+(lang==='ar'?'يرجى ملء الحقول المطلوبة':lang==='ku'?'خانە پێویستەکان پڕ بکەوە':'Fill required fields'));return;}
+  var mainImg=newPhotos.length?newPhotos[0].src:(newRooms.length?newRooms[0].src:'');
+  var p={id:Date.now(),type:document.getElementById('nType').value,status:document.getElementById('nStatus').value,
+    price:price,cur:'$',pU:document.getElementById('nStatus').value==='rent'?'/mo':'',
+    area:parseInt(document.getElementById('nArea').value)||0,
+    beds:parseInt(document.getElementById('nBeds').value)||0,
+    baths:parseInt(document.getElementById('nBath').value)||0,
+    loc:loc,agent:document.getElementById('nPhone').value.trim(),isNew:true,
+    title:{en:title,ku:title,ar:title},
+    desc:{en:document.getElementById('nDesc').value,ku:document.getElementById('nDesc').value,ar:document.getElementById('nDesc').value},
+    img:mainImg,photos:newPhotos.map(function(ph){return ph.src;}),rooms:newRooms.slice()};
+  props.unshift(p);closeModal('addModal');renderProps();dbSave();
+  toast('✅ '+(lang==='ar'?'تم النشر!':lang==='ku'?'تۆمارکرا!':'Property posted!'));
+}
+
+// ── EDIT STATE ──
+var editingId=null, editPhotos=[], editRooms=[];
+function openEdit(id,e){
+  e.stopPropagation();if(!isAdmin)return;
+  var p=props.find(function(x){return x.id===id;});if(!p)return;
+  editingId=id;
+  document.getElementById('eTitle').value=p.title.en||'';
+  document.getElementById('eType').value=p.type||'house';
+  document.getElementById('eStatus').value=p.status||'sale';
+  document.getElementById('ePrice').value=p.price||'';
+  document.getElementById('eLoc').value=p.loc||'';
+  document.getElementById('eBeds').value=p.beds||'';
+  document.getElementById('eBath').value=p.baths||'';
+  document.getElementById('eArea').value=p.area||'';
+  document.getElementById('ePhone').value=p.agent||'';
+  document.getElementById('eDesc').value=p.desc?p.desc.en||'':'';
+  editPhotos=(p.photos&&p.photos.length)?p.photos.map(function(s,i){return{src:s,isMain:i===0};}):(p.img?[{src:p.img,isMain:true}]:[]);
+  editRooms=(p.rooms||[]).map(function(r){return Object.assign({},r,{hotspots:r.hotspots?r.hotspots.slice():[],});});
+  renderEditPhotos();renderEditRooms();openModal('editModal');
+}
+function renderEditPhotos(){
+  var g=document.getElementById('ePhotoGrid');
+  g.innerHTML=editPhotos.map(function(ph,i){
+    return '<div class="ph-item'+(ph.isMain?' main':'')+'" onclick="delEditPhoto('+i+')" title="Click to remove"><img src="'+ph.src+'"><div class="ph-del">✕</div></div>';
+  }).join('');
+}
+function delEditPhoto(i){
+  if(editPhotos.length<=1){toast('⚠️ Need at least one photo');return;}
+  var m=editPhotos[i].isMain;editPhotos.splice(i,1);if(m&&editPhotos.length)editPhotos[0].isMain=true;renderEditPhotos();
+}
+function renderEditRooms(){
+  var l=document.getElementById('eRoomList');
+  if(!editRooms.length){l.innerHTML='<p style="font-size:.8rem;color:var(--gr);padding:8px 0">No 360° rooms yet.</p>';return;}
+  l.innerHTML=editRooms.map(function(r,i){
+    var hc=r.hotspots?r.hotspots.length:0;
+    return '<div class="edit-room-item">'+
+      '<div class="edit-room-thumb"><img src="'+r.src+'"></div>'+
+      '<span style="font-size:1.1rem">'+r.icon+'</span>'+
+      '<input class="edit-room-name" value="'+r.name+'" onchange="editRooms['+i+'].name=this.value;renderEditRooms()" placeholder="Room name">'+
+      '<button class="rul-hs-btn" onclick="openHse(\'edit\','+i+')">🚪 '+(hc?hc+' hs':'Hotspots')+'</button>'+
+      '<button class="edit-room-del" onclick="editRooms.splice('+i+',1);renderEditRooms()">✕</button>'+
+    '</div>';
+  }).join('');
+}
+function saveEdit(){
+  var idx=props.findIndex(function(p){return p.id===editingId;});if(idx<0)return;
+  var p=props[idx];
+  var title=document.getElementById('eTitle').value.trim()||p.title.en;
+  p.title={en:title,ku:title,ar:title};
+  p.type=document.getElementById('eType').value;
+  p.status=document.getElementById('eStatus').value;
+  p.price=parseFloat(document.getElementById('ePrice').value)||p.price;
+  p.pU=p.status==='rent'?'/mo':'';
+  p.loc=document.getElementById('eLoc').value.trim()||p.loc;
+  p.beds=parseInt(document.getElementById('eBeds').value)||0;
+  p.baths=parseInt(document.getElementById('eBath').value)||0;
+  p.area=parseInt(document.getElementById('eArea').value)||0;
+  p.agent=document.getElementById('ePhone').value.trim()||p.agent;
+  var desc=document.getElementById('eDesc').value.trim();
+  p.desc={en:desc,ku:desc,ar:desc};
+  if(editPhotos.length){p.photos=editPhotos.map(function(ph){return ph.src;});p.img=editPhotos[0].src;}
+  p.rooms=editRooms.map(function(r){return Object.assign({},r);});
+  closeModal('editModal');renderProps();dbSave();
+  toast('✅ '+(lang==='ar'?'تم الحفظ':lang==='ku'?'پاشەکەوتکرا':'Saved'));
+}
+
+// ── DELETE ──
+function delProp(id,e){
+  e.stopPropagation();if(!isAdmin)return;
+  if(!confirm(lang==='ar'?'حذف هذا العقار؟':lang==='ku'?'ئەم خانووە بسڕیتەوە؟':'Delete this property?'))return;
+  props=props.filter(function(p){return p.id!==id;});renderProps();dbSave();
+  toast('🗑 '+(lang==='ar'?'تم الحذف':lang==='ku'?'سڕایەوە':'Deleted'));
+}
+
+// ══════════════════════════════════
+// HOTSPOT EDITOR
+// ══════════════════════════════════
+var hseMode=null, hseRoomIdx=0, hseViewer=null, hsePlacing=false, hseTarget=null;
+function getRooms(){return hseMode==='new'?newRooms:editRooms;}
+function openHse(mode,idx){
+  hseMode=mode; hseRoomIdx=idx; hsePlacing=false; hseTarget=null;
+  var rooms=getRooms(); var room=rooms[idx];
+  if(!room)return; if(!room.hotspots)room.hotspots=[];
+  document.getElementById('hseRoomLabel').textContent=room.icon+' '+room.name;
+  document.getElementById('hseCross').classList.remove('on');
+  renderHsePills(rooms); renderHseList(rooms,room);
+  openModal('hseModal');
+  if(hseViewer){try{hseViewer.destroy();}catch(e){}hseViewer=null;}
+  document.getElementById('hseViewer').innerHTML='';
+  setTimeout(function(){
+    try{
+      hseViewer=pannellum.viewer('hseViewer',{
+        type:'equirectangular',panorama:room.src,autoLoad:true,autoRotate:0,showControls:true,
+        hotSpots:buildHseCfg(room.hotspots,rooms)
+      });
+      hseViewer.on('mouseup',function(e){if(hsePlacing)hsePlace(e);});
+      hseViewer.on('touchend',function(e){if(hsePlacing)hsePlace(e);});
+    }catch(e){}
+  },120);
+}
+function buildHseCfg(hs,rooms){
+  return(hs||[]).map(function(h){
+    var tr=rooms[h.targetIdx];
+    return{pitch:h.pitch,yaw:h.yaw,type:'custom',cssClass:'hs-admin-dot',
+      createTooltipFunc:function(div){div.innerHTML='<div class="hs-admin-inner">🚪</div><div class="hs-admin-lbl">'+(tr?tr.name:'?')+'</div>';}};
+  });
+}
+function renderHsePills(rooms){
+  var p=document.getElementById('hseRoomPills');
+  p.innerHTML='<span style="font-size:.75rem;color:var(--gr);flex-shrink:0">'+(lang==='ar'?'يؤدي إلى:':lang==='ku'?'دەچێتە:':'Goes to:')+'</span>'+
+    rooms.map(function(r,i){
+      if(i===hseRoomIdx)return'';
+      return '<button class="hse-pill" data-idx="'+i+'" onclick="hseSelectTarget('+i+',this)">'+r.icon+' '+r.name+'</button>';
+    }).join('');
+}
+function renderHseList(rooms,room){
+  var el=document.getElementById('hseHsList');
+  var hs=room.hotspots||[];
+  if(!hs.length){el.innerHTML='<span>'+(lang==='ar'?'لا توجد نقاط':lang==='ku'?'هیچ نییە':'No hotspots yet — select a room below then click on the panorama')+'</span>';return;}
+  el.innerHTML='<span style="color:var(--gr);margin-right:4px">'+(lang==='ar'?'النقاط:':lang==='ku'?'دەرگاکان:':'Hotspots:')+'</span>'+
+    hs.map(function(h,i){
+      var tr=rooms[h.targetIdx];
+      return '<div class="hse-tag">'+(tr?tr.icon+' '+tr.name:'?')+'<button onclick="delHseHs('+i+')">✕</button></div>';
+    }).join('');
+}
+function hseSelectTarget(idx,btn){
+  hseTarget=idx;
+  document.querySelectorAll('.hse-pill').forEach(function(b){b.classList.remove('on');});
+  btn.classList.add('on');
+  hsePlacing=true; document.getElementById('hseCross').classList.add('on');
+}
+function toggleHsePlacing(){
+  if(hseTarget===null){toast('⚠️ '+(lang==='ar'?'اختر غرفة أولاً':lang==='ku'?'ژوورێک هەڵبژێرە':'Select a target room first'));return;}
+  hsePlacing=!hsePlacing; document.getElementById('hseCross').classList.toggle('on',hsePlacing);
+}
+function hsePlace(e){
+  if(!hseViewer||hseTarget===null)return;
+  try{
+    var coords=hseViewer.mouseEventToCoords(e);
+    if(!coords)coords=[hseViewer.getPitch(),hseViewer.getYaw()];
+    var rooms=getRooms(); var room=rooms[hseRoomIdx];
+    if(!room.hotspots)room.hotspots=[];
+    room.hotspots.push({pitch:coords[0],yaw:coords[1],targetIdx:hseTarget});
+    hsePlacing=false; hseTarget=null;
+    document.getElementById('hseCross').classList.remove('on');
+    document.querySelectorAll('.hse-pill').forEach(function(b){b.classList.remove('on');});
+    renderHseList(rooms,room);
+    rebuildHseViewer(room,rooms);
+    toast('✅ '+(lang==='ar'?'تم وضع النقطة':lang==='ku'?'دانرا':'Hotspot placed'));
+  }catch(e){console.error(e);}
+}
+function delHseHs(i){
+  var rooms=getRooms(); var room=rooms[hseRoomIdx];
+  room.hotspots.splice(i,1); renderHseList(rooms,room); rebuildHseViewer(room,rooms);
+}
+function rebuildHseViewer(room,rooms){
+  if(hseViewer){try{hseViewer.destroy();}catch(e){}}
+  document.getElementById('hseViewer').innerHTML='';
+  setTimeout(function(){
+    try{
+      hseViewer=pannellum.viewer('hseViewer',{
+        type:'equirectangular',panorama:room.src,autoLoad:true,autoRotate:0,showControls:true,
+        hotSpots:buildHseCfg(room.hotspots,rooms)
+      });
+      hseViewer.on('mouseup',function(ev){if(hsePlacing)hsePlace(ev);});
+    }catch(e){}
+  },100);
+}
+function saveHotspots(){
+  closeModal('hseModal');
+  if(hseMode==='new')renderNewRooms();
+  else{renderEditRooms();}
+  toast('✅ '+(lang==='ar'?'تم الحفظ':lang==='ku'?'پاشەکەوتکرا':'Hotspots saved'));
+}
+
+// ══════════════════════════════════
+// LIGHTBOX
+// ══════════════════════════════════
+var lbImgs=[], lbIdx=0;
+function openLB(start){
+  var p=curProp; if(!p)return;
+  lbImgs=(p.photos&&p.photos.length)?p.photos:(p.img?[p.img]:[]);
+  if(!lbImgs.length)return;
+  lbIdx=Math.min(start,lbImgs.length-1);
+  renderLB(); document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLB(){
+  document.getElementById('lightbox').classList.remove('open');
+  if(!document.querySelector('.moverlay.open'))document.body.style.overflow='';
+}
+function lbNav(d){lbIdx=Math.max(0,Math.min(lbImgs.length-1,lbIdx+d));renderLB();}
+function lbGoto(i){lbIdx=i;renderLB();}
+function renderLB(){
+  document.getElementById('lbImg').src=lbImgs[lbIdx];
+  document.getElementById('lbCounter').textContent=(lbIdx+1)+' / '+lbImgs.length;
+  document.getElementById('lbPrev').classList.toggle('hidden',lbIdx===0);
+  document.getElementById('lbNext').classList.toggle('hidden',lbIdx===lbImgs.length-1);
+  document.getElementById('lbStrip').innerHTML=lbImgs.map(function(s,i){
+    return '<div class="lb-sthumb'+(i===lbIdx?' on':'')+'" onclick="lbGoto('+i+')"><img src="'+s+'"></div>';
+  }).join('');
+}
+document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this)closeLB();});
+
+// ══════════════════════════════════
+// TELEGRAM
+// ══════════════════════════════════
+async function sendTelegram(e){
+  var btn=e.target;
+  var name=(document.getElementById('coName').value||'').trim();
+  var phone=(document.getElementById('coPhone').value||'').trim();
+  var msg=(document.getElementById('coMsg').value||'').trim();
+  if(!name&&!phone&&!msg){toast('⚠️ '+(lang==='ar'?'يرجى ملء حقل واحد':lang==='ku'?'زانیاری بنووسە':'Please fill at least one field'));return;}
+  var text='🏛️ *Nawzad Estate — New Inquiry*\n\n'+(name?'👤 *Name:* '+name+'\n':'')+(phone?'📞 *Phone:* '+phone+'\n':'')+(msg?'💬 *Message:* '+msg+'\n':'')+'\n_nawzadestate.com_';
+  btn.disabled=true; btn.textContent='...';
+  try{
+    var res=await fetch('https://api.telegram.org/bot'+TG_TOKEN+'/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:TG_CHAT,text:text,parse_mode:'Markdown'})});
+    var data=await res.json();
+    if(data.ok){
+      document.getElementById('coName').value=''; document.getElementById('coPhone').value=''; document.getElementById('coMsg').value='';
+      toast('✅ '+(lang==='ar'?'تم الإرسال!':lang==='ku'?'نێردرا!':'Message sent!'));
+    }else toast('⚠️ Failed. Call us directly.');
+  }catch(err){toast('⚠️ No internet.');}
+  btn.disabled=false; btn.innerHTML=L.coSn||'Send Message';
+}
+
+// ══════════════════════════════════
+// ADMIN
+// ══════════════════════════════════
+var isAdmin=false;
+function checkPw(){
+  var val=document.getElementById('adminPw').value;
+  if(val===ADMIN_PW){
+    isAdmin=true; document.body.classList.add('adm');
+    closeModal('loginModal'); document.getElementById('adminPw').value=''; document.getElementById('loginErr').textContent='';
+    renderProps(); toast('🔑 Admin mode on');
+  }else{
+    document.getElementById('loginErr').textContent='✕ Wrong password';
+    document.getElementById('adminPw').value=''; document.getElementById('adminPw').focus();
+  }
+}
+function adminLogout(){isAdmin=false;document.body.classList.remove('adm');renderProps();toast('👋 Logged out');}
+// secret: type n@wzad anywhere
+var secBuf='';
+document.addEventListener('keydown',function(e){
+  var tag=document.activeElement.tagName;
+  if(tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT')return;
+  secBuf+=e.key; if(secBuf.length>SECRET_WORD.length)secBuf=secBuf.slice(-SECRET_WORD.length);
+  if(secBuf===SECRET_WORD){secBuf='';if(isAdmin)adminLogout();else{openModal('loginModal');setTimeout(function(){document.getElementById('adminPw').focus();},80);}}
+});
+// ⚙ button: tap 3 times
+var staffN=0,staffT;
+function staffClick(){staffN++;clearTimeout(staffT);staffT=setTimeout(function(){staffN=0;},1500);if(staffN>=3){staffN=0;if(isAdmin)adminLogout();else{openModal('loginModal');setTimeout(function(){document.getElementById('adminPw').focus();},80);}}}
+
+// ══════════════════════════════════
+// MISC
+// ══════════════════════════════════
+function toast(msg){var t=document.getElementById('toastEl');t.textContent=msg;t.classList.add('show');clearTimeout(window._tt);window._tt=setTimeout(function(){t.classList.remove('show');},3200);}
+window.addEventListener('scroll',function(){document.getElementById('nb').classList.toggle('sc',window.scrollY>60);});
+function toggleMob(){document.getElementById('nl').classList.toggle('mob');}
+document.addEventListener('click',function(e){
+  var nl=document.getElementById('nl'); var hb=document.querySelector('.hbg');
+  if(nl.classList.contains('mob')&&!nl.contains(e.target)&&hb&&!hb.contains(e.target)){nl.classList.remove('mob');}
+});
+function animateStat(){var c=0,t=props.length,el=document.getElementById('stL');var iv=setInterval(function(){c++;el.textContent=c;if(c>=t)clearInterval(iv);},70);}
+
+// ══ INIT ══
+applyT();
+dbLoad();
+</script>
+</body>
+</html>
