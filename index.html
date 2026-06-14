@@ -362,11 +362,115 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:56px 5% 2
   animation:fadein .4s ease;white-space:nowrap;z-index:10;
 }
 @keyframes fadein{from{opacity:0;transform:translateX(-50%) translateY(6px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 
 /* no-tour placeholder */
 .no-tour{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:var(--bg);color:var(--grey)}
 .no-tour .ni{font-size:3.5rem;opacity:.3}
 .no-tour p{font-size:.85rem}
+
+/* ── STREET VIEW HOTSPOTS ── */
+/* customer view hotspot */
+.hs-dot{
+  width:52px;height:52px;position:relative;cursor:pointer;
+}
+.hs-dot-inner{
+  width:52px;height:52px;border-radius:50%;
+  background:rgba(201,146,59,.85);
+  border:3px solid rgba(255,255,255,.9);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;
+  box-shadow:0 2px 20px rgba(201,146,59,.7),0 0 0 0 rgba(201,146,59,.4);
+  animation:hspulse 2s infinite;
+  transition:transform .2s;
+}
+.hs-dot:hover .hs-dot-inner{transform:scale(1.18)}
+.hs-label{
+  position:absolute;bottom:-26px;left:50%;transform:translateX(-50%);
+  background:rgba(15,25,35,.92);color:var(--ivory);
+  font-size:.68rem;font-weight:700;white-space:nowrap;
+  padding:3px 8px;border-radius:4px;border:1px solid var(--border);
+  pointer-events:none;
+}
+@keyframes hspulse{
+  0%{box-shadow:0 2px 20px rgba(201,146,59,.7),0 0 0 0 rgba(201,146,59,.5)}
+  70%{box-shadow:0 2px 20px rgba(201,146,59,.7),0 0 0 16px rgba(201,146,59,0)}
+  100%{box-shadow:0 2px 20px rgba(201,146,59,.7),0 0 0 0 rgba(201,146,59,0)}
+}
+
+/* admin edit hotspot (red, shown only in editor) */
+.hs-admin{
+  width:36px;height:36px;position:relative;cursor:pointer;
+}
+.hs-admin-inner{
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(224,91,91,.9);border:2px solid #fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.9rem;color:#fff;
+}
+.hs-admin-label{
+  position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);
+  background:var(--red);color:#fff;
+  font-size:.62rem;font-weight:700;white-space:nowrap;
+  padding:2px 6px;border-radius:3px;pointer-events:none;
+}
+
+/* ── HOTSPOT EDITOR MODAL ── */
+#hsEditorModal .mbox{max-width:900px;height:88vh}
+.hse-wrap{display:flex;flex-direction:column;height:100%;min-height:0}
+.hse-toolbar{
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  padding:10px 14px;background:var(--bg);border-bottom:1px solid var(--border);flex-shrink:0;
+}
+.hse-toolbar-title{font-size:.82rem;font-weight:700;color:var(--gold);margin-right:4px}
+.hse-btn{
+  padding:6px 13px;border-radius:var(--r);border:1px solid var(--border);
+  background:var(--surface);color:var(--ivory);font-size:.78rem;font-weight:600;
+  cursor:pointer;font-family:inherit;transition:all .2s;display:flex;align-items:center;gap:4px;
+}
+.hse-btn:hover{border-color:var(--gold);color:var(--gold)}
+.hse-btn.placing{background:rgba(201,146,59,.15);border-color:var(--gold);color:var(--gold)}
+.hse-btn.save{background:var(--green);border-color:var(--green);color:#fff}
+.hse-btn.save:hover{background:#3d9e69}
+.hse-viewer{flex:1;position:relative;min-height:0}
+.hse-viewer #hsePannellum{width:100%;height:100%}
+/* crosshair when placing */
+.hse-crosshair{
+  position:absolute;inset:0;cursor:crosshair;z-index:50;
+  display:none;
+  background:rgba(201,146,59,.04);
+  border:2px solid rgba(201,146,59,.5);
+  align-items:center;justify-content:center;
+}
+.hse-crosshair.on{display:flex}
+.hse-crosshair-msg{
+  background:rgba(15,25,35,.9);border:1px solid var(--gold);
+  color:var(--gold);padding:10px 20px;border-radius:var(--r);
+  font-size:.85rem;font-weight:600;pointer-events:none;
+}
+/* room pills in editor sidebar */
+.hse-rooms{
+  display:flex;gap:6px;flex-wrap:wrap;padding:10px 14px;
+  background:var(--bg2);border-top:1px solid var(--border);flex-shrink:0;
+}
+.hse-room-pill{
+  padding:5px 12px;border-radius:100px;border:1px solid var(--border);
+  background:transparent;color:var(--grey);font-size:.75rem;font-weight:600;
+  cursor:pointer;font-family:inherit;transition:all .2s;display:flex;align-items:center;gap:4px;
+}
+.hse-room-pill:hover{border-color:var(--gold);color:var(--gold)}
+.hse-room-pill.on{background:var(--gold);border-color:var(--gold);color:var(--bg)}
+.hse-hs-list{
+  padding:8px 14px;background:var(--bg2);border-top:1px solid var(--border);
+  flex-shrink:0;display:flex;flex-wrap:wrap;gap:6px;align-items:center;
+  font-size:.75rem;color:var(--grey);
+}
+.hse-hs-tag{
+  display:flex;align-items:center;gap:4px;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:100px;padding:3px 10px;color:var(--ivory);font-size:.72rem;
+}
+.hse-hs-tag button{background:none;border:none;color:var(--red);cursor:pointer;font-size:.8rem;padding:0 0 0 3px}
 
 /* ─── ADD PROPERTY MODAL ─── */
 #addModal .mbox{max-width:700px}
@@ -855,6 +959,40 @@ body.adm .card-edit-btn{display:flex}
   </div>
 </div>
 
+<!-- HOTSPOT EDITOR MODAL (admin only) -->
+<div class="moverlay" id="hsEditorModal">
+  <div class="mbox">
+    <div class="mhead">
+      <h3>🚪 Place Door Hotspots</h3>
+      <button class="mcls" onclick="closeModal('hsEditorModal')">✕</button>
+    </div>
+    <div class="hse-wrap">
+      <!-- toolbar -->
+      <div class="hse-toolbar">
+        <span class="hse-toolbar-title" id="hseRoomName">Room</span>
+        <button class="hse-btn placing" id="hsePlaceBtn" onclick="togglePlacing()">🎯 Click on image to place hotspot</button>
+        <button class="hse-btn save" onclick="saveHotspots()">💾 Save Hotspots</button>
+        <span style="font-size:.75rem;color:var(--grey);margin-left:4px">Select target room below ↓</span>
+      </div>
+      <!-- viewer -->
+      <div class="hse-viewer">
+        <div id="hsePannellum"></div>
+        <div class="hse-crosshair" id="hseCrosshair">
+          <div class="hse-crosshair-msg">👆 Click exactly where you want the door arrow</div>
+        </div>
+      </div>
+      <!-- current hotspots -->
+      <div class="hse-hs-list" id="hseHsList">
+        <span style="color:var(--grey)">No hotspots yet — place one above</span>
+      </div>
+      <!-- target room selector -->
+      <div class="hse-rooms" id="hseRoomPills">
+        <span style="font-size:.75rem;color:var(--grey)">Goes to:</span>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
   <button class="lb-close" onclick="closeLightbox()">✕</button>
@@ -1023,6 +1161,49 @@ const DEMO360=[
   'https://pannellum.org/images/jfk.jpg',
 ];
 const ROOM_ICONS={'Exterior':'🌿','Living Room':'🛋','Bedroom 1':'🛏','Bedroom 2':'🛏','Kitchen':'🍳','Bathroom':'🚿','Dining Room':'🪑','Garage':'🚗','Garden':'🌳','Balcony':'🌅','Study':'📚','Pool':'🏊'};
+
+// ══ JSONBIN — persistent storage ══
+const BIN_ID  = '6a2eca45da38895dfebf3454';
+const BIN_KEY = '$2a$10$LUYr3y57RRkPp2wp3DOQ1esukOO8qDETLOl6V2j5m6piqFwKOWh8i';
+const BIN_URL = 'https://api.jsonbin.io/v3/b/' + BIN_ID;
+
+let props = []; // loaded from JSONBin on startup
+let dbLoaded = false;
+
+async function dbLoad() {
+  try {
+    document.getElementById('pgrid').innerHTML =
+      '<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--grey)"><div style="font-size:2rem;margin-bottom:10px;animation:spin 1s linear infinite;display:inline-block">⏳</div><p>Loading listings...</p></div>';
+    const res  = await fetch(BIN_URL + '/latest', {
+      headers: { 'X-Master-Key': BIN_KEY }
+    });
+    const data = await res.json();
+    props = (data.record && data.record.props) ? data.record.props : [];
+    dbLoaded = true;
+    renderProps();
+    animateStat();
+  } catch(e) {
+    console.error('JSONBin load error:', e);
+    props = [];
+    dbLoaded = true;
+    renderProps();
+    document.getElementById('pgrid').innerHTML =
+      '<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--grey)"><p>⚠️ Could not load listings. Check internet connection.</p></div>';
+  }
+}
+
+async function dbSave() {
+  try {
+    await fetch(BIN_URL, {
+      method: 'PUT',
+      headers: { 'Content-Type':'application/json', 'X-Master-Key': BIN_KEY },
+      body: JSON.stringify({ props: props })
+    });
+  } catch(e) {
+    console.error('JSONBin save error:', e);
+    toast('⚠️ Could not save — check internet');
+  }
+}
 
 let props=[
   {id:1,type:'villa',status:'sale',price:245000,cur:'$',area:320,beds:5,baths:3,
@@ -1236,8 +1417,8 @@ function tourNav(dir){
 function loadRoom(i){
   const p=curProp;
   if(!p||!p.rooms||!p.rooms.length){
-    document.getElementById('pannellumTour').innerHTML=`<div class="no-tour"><div class="ni">🌐</div><p>${L.noTour}</p></div>`;
-    document.getElementById('roomMenu').innerHTML=`<span style="font-size:.8rem;color:var(--grey)">${L.noTour}</span>`;
+    document.getElementById('pannellumTour').innerHTML='<div class="no-tour"><div class="ni">🌐</div><p>'+L.noTour+'</p></div>';
+    document.getElementById('roomMenu').innerHTML='<span style="font-size:.8rem;color:var(--grey)">'+L.noTour+'</span>';
     document.getElementById('tourDots').innerHTML='';
     document.getElementById('btnPrev').disabled=true;
     document.getElementById('btnNext').disabled=true;
@@ -1245,7 +1426,7 @@ function loadRoom(i){
   }
 
   // update room menu highlights
-  document.querySelectorAll('.room-btn').forEach((b,idx)=>b.classList.toggle('on',idx===i));
+  document.querySelectorAll('.room-btn').forEach(function(b,idx){ b.classList.toggle('on',idx===i); });
 
   // nav button states
   document.getElementById('btnPrev').disabled=(i===0);
@@ -1256,25 +1437,55 @@ function loadRoom(i){
   const room=p.rooms[i];
   destroyViewer();
 
-  // Show hint for first room
-  showHint(i===0 ? (lang==='ar'?'استخدم قائمة الغرف للانتقال مباشرة لأي غرفة':lang==='ku'?'مێنیوی ژوورەکان بەکاربێنە':' Use the room menu above to jump to any room') : null);
+  // build hotspot config — clicking a hotspot walks to that room (street view style)
+  var hotspotsCfg = [];
+  if (room.hotspots && room.hotspots.length) {
+    hotspotsCfg = room.hotspots.map(function(hs) {
+      const targetRoom = p.rooms[hs.targetIdx];
+      if (!targetRoom) return null;
+      const label = targetRoom.icon + ' ' + targetRoom.name;
+      return {
+        pitch: hs.pitch,
+        yaw:   hs.yaw,
+        type:  'custom',
+        cssClass: 'hs-dot',
+        createTooltipFunc: function(div) {
+          div.innerHTML = '<div class="hs-dot-inner">🚶</div><div class="hs-label">'+label+'</div>';
+        },
+        clickHandlerFunc: function() {
+          curRoom = hs.targetIdx;
+          loadRoom(hs.targetIdx);
+        }
+      };
+    }).filter(Boolean);
+  }
+
+  // hint: first room show walk hint, otherwise show street view tip
+  var hint = null;
+  if (i===0 && hotspotsCfg.length) {
+    hint = lang==='ar'?'انقر على السهم للدخول':lang==='ku'?'کلیک بکە بۆ چوون ناو خانووەکە':'Click the glowing arrow to walk in';
+  } else if (!hotspotsCfg.length && p.rooms.length > 1) {
+    hint = lang==='ar'?'استخدم قائمة الغرف للتنقل':lang==='ku'?'مێنیوی ژوورەکان بەکاربێنە':'Use room menu to navigate';
+  }
+  showHint(hint);
 
   const container=document.getElementById('pannellumTour');
   container.innerHTML='';
 
-  setTimeout(()=>{
+  setTimeout(function(){
     try {
       viewerInst=pannellum.viewer('pannellumTour',{
         type:'equirectangular',
         panorama:room.src,
         autoLoad:true,
-        autoRotate:-1.5,
+        autoRotate: hotspotsCfg.length ? 0 : -1.2,
         showControls:true,
         orientationOnByDefault:true,
+        hotSpots: hotspotsCfg,
         strings:{loadButtonLabel:"Click to Load",loadingLabel:"Loading..."}
       });
     } catch(e){
-      container.innerHTML=`<div class="no-tour"><div class="ni">⚠️</div><p>Could not load 360° image.</p></div>`;
+      container.innerHTML='<div class="no-tour"><div class="ni">⚠️</div><p>Could not load 360° image.</p></div>';
     }
   },80);
 }
@@ -1402,7 +1613,7 @@ function renderRoomList(){
     return '<div class="rul-item">' +
       '<div class="rul-thumb"><img src="' + r.src + '" alt=""></div>' +
       '<div class="rul-info">' +
-        '<input class="rul-name-input" value="' + r.name + '" placeholder="Room name" onchange="newRooms[' + i + '].name=this.value">' +
+        '<input class="rul-name-input" value="' + r.name + '" placeholder="Room name" onchange="newRooms[' + i + '].name=this.value;renderRoomList()">' +
         '<div style="margin-top:5px;display:flex;align-items:center;gap:6px">' +
           '<select class="rul-icon-sel" onchange="newRooms[' + i + '].icon=this.value">' +
             Object.entries(ROOM_ICONS).map(function(e){ return '<option value="' + e[1] + '"' + (e[1]===r.icon?' selected':'') + '>' + e[1] + ' ' + e[0] + '</option>'; }).join('') +
@@ -1410,6 +1621,7 @@ function renderRoomList(){
           '<span style="font-size:.72rem;color:var(--grey)">' + (i===0?'(First = Exterior)':'') + '</span>' +
         '</div>' +
       '</div>' +
+      '<button style="background:rgba(201,146,59,.12);border:1px solid rgba(201,146,59,.3);color:var(--gold);border-radius:var(--r);font-size:.72rem;padding:4px 9px;cursor:pointer;font-family:inherit;white-space:nowrap" onclick="openHsEditor(\'new\',' + i + ')">🚪 Hotspots</button>' +
       '<button class="rul-rm" onclick="removeRoom(' + i + ')">✕</button>' +
     '</div>';
   }).join('');
@@ -1446,6 +1658,7 @@ function submitProp(){
   closeModal('addModal');
   renderProps();
   newRooms=[]; newPhotos=[];
+  dbSave();
   toast('✅ '+(lang==='ar'?'تم نشر العقار!':lang==='ku'?'خانووەکە تۆمارکرا!':'Property posted!'));
 }
 
@@ -1483,6 +1696,168 @@ function cloudEditRoom() {
 // Keep old addEditPhotos/addEditRoom as fallback (now unused but safe to keep)
 function addEditPhotos(e){}
 function addEditRoom(e){}
+
+// ══ HOTSPOT EDITOR ══
+let hseMode    = null;   // 'new' or 'edit'
+let hseRoomIdx = 0;
+let hseViewer  = null;
+let hsePlacing = false;
+let hseSelectedTarget = null;
+
+function getRoomList() {
+  return hseMode === 'new' ? newRooms : editRooms;
+}
+
+function openHsEditor(mode, roomIdx) {
+  hseMode    = mode;
+  hseRoomIdx = roomIdx;
+  hsePlacing = false;
+  hseSelectedTarget = null;
+
+  const rooms = getRoomList();
+  const room  = rooms[roomIdx];
+  if (!room) return;
+  if (!room.hotspots) room.hotspots = [];
+
+  document.getElementById('hseRoomName').textContent = room.icon + ' ' + room.name;
+  document.getElementById('hsePlaceBtn').classList.add('placing');
+  document.getElementById('hseCrosshair').classList.remove('on');
+
+  // build room pills (all rooms except this one)
+  const pills = document.getElementById('hseRoomPills');
+  pills.innerHTML = '<span style="font-size:.75rem;color:var(--grey);flex-shrink:0">Goes to:</span>' +
+    rooms.filter(function(_,i){ return i !== roomIdx; }).map(function(r, i){
+      const realIdx = i >= roomIdx ? i+1 : i;
+      return '<button class="hse-room-pill" data-idx="'+realIdx+'" onclick="hseSelectTarget('+realIdx+',this)">'+r.icon+' '+r.name+'</button>';
+    }).join('');
+
+  renderHseHsList();
+  openModal('hsEditorModal');
+
+  // load pannellum
+  if (hseViewer) { try { hseViewer.destroy(); } catch(e){} hseViewer = null; }
+  document.getElementById('hsePannellum').innerHTML = '';
+  setTimeout(function(){
+    try {
+      hseViewer = pannellum.viewer('hsePannellum', {
+        type:'equirectangular', panorama: room.src,
+        autoLoad:true, autoRotate:0, showControls:true,
+        hotSpots: buildHseCfg(room.hotspots, rooms)
+      });
+      // click to place
+      hseViewer.on('mouseup', function(e){ if(hsePlacing) hsePlace(e); });
+      hseViewer.on('touchend', function(e){ if(hsePlacing) hsePlace(e); });
+    } catch(err){ console.error(err); }
+  }, 120);
+}
+
+function buildHseCfg(hotspots, rooms) {
+  return (hotspots||[]).map(function(hs){
+    const tRoom = rooms[hs.targetIdx];
+    return {
+      pitch: hs.pitch, yaw: hs.yaw,
+      type: 'custom', cssClass: 'hs-admin',
+      createTooltipFunc: function(div){
+        div.innerHTML = '<div class="hs-admin-inner">🚪</div><div class="hs-admin-label">'+(tRoom?tRoom.name:'?')+'</div>';
+      }
+    };
+  });
+}
+
+function hseSelectTarget(idx, btn) {
+  hseSelectedTarget = idx;
+  document.querySelectorAll('.hse-room-pill').forEach(function(b){ b.classList.remove('on'); });
+  btn.classList.add('on');
+  // auto-enter placing mode
+  hsePlacing = true;
+  document.getElementById('hseCrosshair').classList.add('on');
+  document.getElementById('hsePlaceBtn').classList.add('placing');
+}
+
+function togglePlacing() {
+  if (hseSelectedTarget === null) {
+    toast('⚠️ First select which room the door leads to (below)');
+    return;
+  }
+  hsePlacing = !hsePlacing;
+  document.getElementById('hseCrosshair').classList.toggle('on', hsePlacing);
+}
+
+function hsePlace(e) {
+  if (!hseViewer || hseSelectedTarget === null) return;
+  try {
+    var coords = hseViewer.mouseEventToCoords(e);
+    if (!coords) {
+      // fallback: use current view center
+      coords = [hseViewer.getPitch(), hseViewer.getYaw()];
+    }
+    const rooms = getRoomList();
+    const room  = rooms[hseRoomIdx];
+    if (!room.hotspots) room.hotspots = [];
+    room.hotspots.push({ pitch: coords[0], yaw: coords[1], targetIdx: hseSelectedTarget });
+    hsePlacing = false;
+    document.getElementById('hseCrosshair').classList.remove('on');
+    hseSelectedTarget = null;
+    document.querySelectorAll('.hse-room-pill').forEach(function(b){ b.classList.remove('on'); });
+    renderHseHsList();
+    // rebuild viewer with new hotspot
+    if (hseViewer) { try { hseViewer.destroy(); } catch(err){} }
+    document.getElementById('hsePannellum').innerHTML = '';
+    setTimeout(function(){
+      try {
+        hseViewer = pannellum.viewer('hsePannellum', {
+          type:'equirectangular', panorama: room.src,
+          autoLoad:true, autoRotate:0, showControls:true,
+          hotSpots: buildHseCfg(room.hotspots, rooms)
+        });
+        hseViewer.on('mouseup', function(e2){ if(hsePlacing) hsePlace(e2); });
+        hseViewer.on('touchend', function(e2){ if(hsePlacing) hsePlace(e2); });
+      } catch(err){}
+    }, 100);
+    toast('✅ Hotspot placed → ' + rooms[hseSelectedTarget===null?0:room.hotspots[room.hotspots.length-1].targetIdx]?.name);
+  } catch(err){ console.error(err); }
+}
+
+function renderHseHsList() {
+  const rooms = getRoomList();
+  const room  = rooms[hseRoomIdx];
+  const hs    = room.hotspots || [];
+  const el    = document.getElementById('hseHsList');
+  if (!hs.length) { el.innerHTML = '<span style="color:var(--grey)">No hotspots yet — select a target room below then click on the panorama</span>'; return; }
+  el.innerHTML = '<span style="color:var(--grey);margin-right:4px">Hotspots:</span>' +
+    hs.map(function(h, i){
+      const tRoom = rooms[h.targetIdx];
+      return '<div class="hse-hs-tag">' + (tRoom?tRoom.icon+' '+tRoom.name:'?') +
+        '<button onclick="delHseHotspot('+i+')">✕</button></div>';
+    }).join('');
+}
+
+function delHseHotspot(i) {
+  const rooms = getRoomList();
+  const room  = rooms[hseRoomIdx];
+  room.hotspots.splice(i, 1);
+  renderHseHsList();
+  // rebuild viewer
+  if (hseViewer) { try { hseViewer.destroy(); } catch(e){} }
+  document.getElementById('hsePannellum').innerHTML = '';
+  setTimeout(function(){
+    try {
+      hseViewer = pannellum.viewer('hsePannellum', {
+        type:'equirectangular', panorama: room.src,
+        autoLoad:true, autoRotate:0, showControls:true,
+        hotSpots: buildHseCfg(room.hotspots, rooms)
+      });
+      hseViewer.on('mouseup', function(e){ if(hsePlacing) hsePlace(e); });
+    } catch(err){}
+  }, 100);
+}
+
+function saveHotspots() {
+  closeModal('hsEditorModal');
+  if (hseMode === 'new') renderRoomList();
+  else { renderEditRooms(); dbSave(); }
+  toast('✅ Hotspots saved');
+}
 
 // ══ LIGHTBOX ══
 let lbImages = [];   // all photo URLs for current property
@@ -1629,6 +2004,7 @@ function deleteProp(id, e) {
   if (!confirm('Delete this property?')) return;
   props = props.filter(function(p){ return p.id !== id; });
   renderProps();
+  dbSave();
   toast('🗑 Deleted');
 }
 
@@ -1701,12 +2077,14 @@ function renderEditRooms() {
   const list = document.getElementById('eRoomList');
   if (!editRooms.length) { list.innerHTML = '<p style="font-size:.8rem;color:var(--grey);padding:8px 0">No 360° rooms yet. Add one below.</p>'; return; }
   list.innerHTML = editRooms.map(function(r, i){
+    const hsCount = r.hotspots ? r.hotspots.length : 0;
     return '<div class="edit-room-item">' +
       '<div class="edit-room-thumb"><img src="'+r.src+'" alt=""></div>' +
       '<span style="font-size:1.1rem">'+r.icon+'</span>' +
-      '<input class="edit-room-name" value="'+r.name+'" onchange="editRooms['+i+'].name=this.value" placeholder="Room name">' +
+      '<input class="edit-room-name" value="'+r.name+'" onchange="editRooms['+i+'].name=this.value;renderEditRooms()" placeholder="Room name">' +
+      '<button style="background:rgba(201,146,59,.12);border:1px solid rgba(201,146,59,.3);color:var(--gold);border-radius:var(--r);font-size:.72rem;padding:4px 9px;cursor:pointer;font-family:inherit;white-space:nowrap" onclick="openHsEditor(\'edit\','+i+')">🚪 '+(hsCount?hsCount+' hotspot'+(hsCount>1?'s':''):'Hotspots')+'</button>' +
       '<button class="edit-room-del" onclick="delEditRoom('+i+')" title="Remove">✕</button>' +
-      '</div>';
+    '</div>';
   }).join('');
 }
 
@@ -1756,6 +2134,7 @@ function saveEdit() {
   p.rooms = editRooms.map(function(r){ return {name:r.name, icon:r.icon, src:r.src}; });
   closeModal('editModal');
   renderProps();
+  dbSave();
   toast('✅ Property updated');
 }
 
@@ -1818,12 +2197,14 @@ window.addEventListener('scroll',()=>document.getElementById('nb').classList.tog
 function toggleMob(){document.getElementById('nl').classList.toggle('mob');}
 
 // ══ INIT ══
-applyT(); renderProps();
-setTimeout(()=>{
-  let c=0,t=props.length;
+applyT();
+dbLoad();
+
+function animateStat() {
+  let c=0, t=props.length;
   const el=document.getElementById('stL');
-  const iv=setInterval(()=>{c++;el.textContent=c;if(c>=t)clearInterval(iv);},70);
-},400);
+  const iv=setInterval(function(){ c++; el.textContent=c; if(c>=t) clearInterval(iv); }, 70);
+}
 </script>
 </body>
 </html>
